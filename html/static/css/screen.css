@@ -1,0 +1,93 @@
+.logo {
+    text-align: center;
+    margin: 50px 0;
+}
+.login {
+    margin: 40px auto;
+    float: inherit;
+}
+.login .buttons {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+.login .buttons button {
+    margin: 0 5px;
+}
+.login ul {
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+.login ul li{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.login ul li a {   
+    margin: 0;
+    padding: 0 5px;
+}
+.login ul li:first-child {
+    border-right: 1px solid #333;
+    padding-right: 5px;
+}
+
+.propaganda {
+    margin: 30px auto 50px auto;
+    width: 728px;
+    font-size: 7pt;
+}
+.content {
+    margin-top: 30px;
+}
+.content .block {
+    width: 100%;
+    padding: 20px;
+    background: #F7F7FF;
+    display: table;
+    margin: 20px 0;
+}
+.content .block h3 {
+    margin-top: 0;
+    cursor: pointer;
+}
+.content .block .item img {
+    float: left;
+    margin: 0 10px 0 0;
+}
+.content .block .item a {
+    color: #333;
+}
+.content .friends {
+    margin: 20px 0 0 0;
+}
+.content .friends .friend {
+    float: left;
+    width: 270px;
+}
+.content .atividades .atividade {
+    margin: 7px 0;
+    padding-left: 5px;
+}
+.content .projetos .item {
+    margin: 5px 0;
+}
+.content .publique textarea {    
+    width:98%;
+    height: 70px;
+}
+.content .publique button {
+    float: right;
+}
+.content .buttons a {
+    width: 90%;
+    margin: 5px 0;
+}
+
+.footer {
+    width: 100%;
+    padding: 20px 10px;
+    bottom: 0;
+    background: #999;
+    text-align: center;
+}
