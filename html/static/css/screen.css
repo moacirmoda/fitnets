@@ -138,6 +138,15 @@ img {
     margin: 5px;
 }
 
+.content .evolucao .buttons {
+    float: right;
+}
+.content .evolucao .buttons a {
+    margin: 12px;
+    width: inherit;
+}
+
+
 .footer {
     padding: 20px 10px;    
 
