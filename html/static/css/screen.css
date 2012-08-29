@@ -1,3 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive; 
+    letter-spacing: 1px;   
+}
+h1 small, h2 small, h3 small, h4 small {
+    margin: 0 5px;
+    letter-spacing: 0;   
+}
+
 .logo {
     text-align: center;
     margin: 50px 0;
@@ -22,7 +33,6 @@
     margin: 0;
     padding: 0;
 }
-
 .login ul li a {   
     margin: 0;
     padding: 0 5px;
@@ -40,6 +50,13 @@
 .content {
     margin-top: 30px;
 }
+.content .fotoPerfil {
+    text-align: center;
+}
+.content .fotoPerfil a {
+    margin: 5px 0 0 0;
+}
+
 .content .block {
     width: 100%;
     padding: 20px;
@@ -86,8 +103,8 @@
 
 .footer {
     width: 100%;
-    padding: 20px 10px;
+    padding: 20px 10px;    
     bottom: 0;
-    background: #999;
+    background: #c9c9c9;
     text-align: center;
 }
