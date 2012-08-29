@@ -134,6 +134,9 @@ img {
 .content .ultimas-publicacoes .actions {
     float: right;
 }
+.content .fotos .item img {
+    margin: 5px;
+}
 
 .footer {
     padding: 20px 10px;    
