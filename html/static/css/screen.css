@@ -154,6 +154,7 @@ img {
 
 .content .block .buttons {
     float: right;
+    margin: 0 10px -10px 0;
 }
 .content .evolucao .buttons a {
     margin: 12px;
@@ -163,6 +164,19 @@ img {
     margin: 10px 0;
     padding: 10px 10px 10px 10px;
     border-bottom: 1px solid #ddd;
+}
+
+.content .query input {
+    padding: 10px 5px;
+    width: 100%;
+}
+.content .query .btn {
+    float: right;
+    margin: 5px -12px 0 0;
+}
+.content .result .item {
+    margin: 15px 10px;
+    /*border-bottom: 1px solid #ddd;   */
 }
 
 

@@ -17,7 +17,7 @@ $(function(){
 
     // comentários do projeto
     $("#showComment").click(function(){
-        $('.comments').fadeIn('slow');
+        $('.ultimas-publicacoes').fadeIn('slow');
     });
 
 })
