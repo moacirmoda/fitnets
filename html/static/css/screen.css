@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Lobster', cursive; 
     letter-spacing: 1px;   
 }
@@ -13,6 +13,9 @@ img {
 }
 .clear {
     clear:both;
+}
+.hide {
+    display: none;
 }
 .navbar h1 {
     font-size: inherit;
@@ -82,9 +85,23 @@ img {
     box-shadow: 1px 1px 7px #dedede;
     border-radius: 4px;
 }
+.content .block:hover {
+    background: #F0F0FF;
+    -webkit-transition: background 300ms ;
+    -moz-transition: background 300ms ;
+    -ms-transition: background 300ms ;
+    -o-transition: background 300ms ;
+    transition: background 300ms ;
+}
+.content .block .actions {
+    float: right;
+}
 .content .block h3 {
     margin-top: 0;
     cursor: pointer;
+}
+.content .block .item h4 {
+    margin-bottom: 0px;
 }
 .content .block .item img {
     float: left;
@@ -131,19 +148,21 @@ img {
 .content .ultimas-publicacoes .item:hover {
     background: #eee;
 }
-.content .ultimas-publicacoes .actions {
-    float: right;
-}
 .content .fotos .item img {
     margin: 5px;
 }
 
-.content .evolucao .buttons {
+.content .block .buttons {
     float: right;
 }
 .content .evolucao .buttons a {
     margin: 12px;
     width: inherit;
+}
+.content .treino .item {
+    margin: 10px 0;
+    padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 
