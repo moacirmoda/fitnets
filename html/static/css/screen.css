@@ -17,6 +17,23 @@ img {
 .hide {
     display: none;
 }
+
+.alert-box {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    padding: 10px 0;
+    height: 20px;
+    opacity: .9;
+}
+.alert-box .fechar {
+    float:right;
+    margin: 0 30px;
+    color: #999;
+}
+
 .navbar h1 {
     font-size: inherit;
     line-height: inherit;
@@ -32,7 +49,7 @@ img {
     margin: 40px auto;
     float: inherit;
 }
-.login .buttons {
+.login .button {
     margin: 20px 0 0 0;
     text-align: center;
 }
@@ -55,6 +72,11 @@ img {
 .login ul li:first-child {
     border-right: 1px solid #333;
     padding-right: 5px;
+}
+
+.register .text input {
+    margin: 5px 0;
+    width: 95%;
 }
 
 .propaganda {

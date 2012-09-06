@@ -1,4 +1,8 @@
-$(function(){
+$(function(){    
+
+    window.setTimeout(function () {
+        close_alert();
+    }, 3000);
 
     var body = $('body');
     var block = $('.block');    
@@ -21,3 +25,8 @@ $(function(){
     });
 
 })
+
+var box = $('.alert-box');
+function close_alert() {
+    $(".alert-box").animate({"top":'-100px'}, 600, 'easeOutQuart');
+}
