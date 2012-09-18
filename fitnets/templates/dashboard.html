@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row">
+                
+        <div class="span3 side">
+            <div class="fotoPerfil">
+                <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-hope-solo.jpg" />
+                <a href="#" class="btn btn-small btn-info">Mudar foto perfil</a>
+            </div>
+        </div>
+
+        <div class="span9">
+            <h2>Bem vindo, Moacir</h2>
+
+            <!-- block friends -->
+            <div class="block friends">
+                <h3>Solicitações de amizade</h3>
+                <div class="blockContent">
+                    <div class="item friend">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-michael-phelps-p.jpg" />
+                        <p><b>Phelps</b> <small>quer ser seu amigo</small></p>
+                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
+                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
+                    </div>
+
+                    <div class="item friend">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-robert-scheidt-p.jpg" />
+                        <p><b>Schneider</b> <small>quer ser seu amigo</small></p>
+                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
+                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
+                    </div>
+
+                    <div class="item friend">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-neymar-p.jpg" />
+                        <p><b>Neymar</b> <small>quer ser seu amigo</small></p>
+                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
+                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- fim block friends -->
+        </div>
+    </div>
+    <div class="row">
+        <!-- block atividades -->
+        <div class="span6">
+            <div class="block atividades">
+                <h3>Atividades de amigos</h3>
+                <div class="blockContent">
+                    <div class="item atividade">
+                        <a href="#">
+                            <i class="icon-heart"></i>
+                            <b>Neymar</b> 
+                            <small>começou uma nova amizade com Carla</small>.
+                        </a>
+                    </div>
+                    <div class="item atividade">
+                        <a href="#">
+                            <i class="icon-flag"></i>
+                            <b>Schneider</b> 
+                            <small>iniciou um novo projeto</small>.
+                        </a>
+                    </div>
+                    <div class="item atividade">
+                        <a href="#">
+                            <i class="icon-comment"></i>
+                            <b>Carla</b> 
+                            <small>fez um comentário no projeto de Neymar</small>.
+                        </a>
+                    </div>
+                    <div class="item atividade">
+                        <a href="#">
+                            <i class="icon-wrench"></i>
+                            <b>Schneider</b> 
+                            <small>alterou seu perfil</small>.
+                        </a>
+                    </div>
+                </div>
+                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            </div>
+        </div>
+        <!-- fim block atividades -->
+
+        <!-- block projetos -->
+        <div class="span6">
+            <div class="block projetos">
+                <h3>Seus Projetos</h3>
+                <div class="blockContent">
+                    <ul>
+                        <li class="item"><a href="03-project.html">Definição e ganho de massa</a></li>
+                        <li class="item"><a href="03-project.html">Perda de Peso</a></li>
+                        <li class="item"><a href="03-project.html">Definição Muscular</a></li>
+                    </ul>
+                </div>
+                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            </div>
+        </div>
+        <!-- fim bloco projetos -->
+    </div>
+
+    <!-- propaganda -->
+    <!-- <div class="propaganda">
+        <span>publicidade</span><br>
+        <img src="http://images.4chon.net/edu/src/1342729815796.png">
+    </div> -->
+
+    <div class="row">
+        <!-- bloco publique -->
+        <div class="span8">
+            <div class="block publique">
+                <form name="" method="post" action="{% url wall.views.new request.user.id %}">{% csrf_token %}
+                    <label for="message">
+                        <h3>Publique no seu mural</h3>
+                    </label>
+                    <div class="control-group">
+                        {{ forms.wall.message }}
+                    </div>
+                    <button type="submit" class="btn btn-large btn-primary"><i class="icon-comment icon-white"></i> Publicar</button>
+                </form>
+            </div>
+        </div>
+        <!-- fim do bloco publique -->
+
+        <!-- bloco buttons -->
+        <div class="span4">
+            <div class="block buttons">
+                <h3></h3>
+
+                <a href="#" class="btn btn-large">Crie um novo projeto</a><br>
+                <a href="#" class="btn btn-large">Procure amigos</a><br>
+                <a href="#" class="btn btn-large">Edite seu perfil</a><br>
+            </div>
+        </div>
+        <!-- fim do bloco buttons -->
+    </div>
+
+{% endblock %}

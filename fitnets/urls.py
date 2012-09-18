@@ -11,7 +11,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^messages/', include('messages.urls')),
-    url(r'^/', include('main.urls')),
+    url(r'profile/', include('account.urls')),
+    url(r'wall/', include('wall.urls')),
 )
 
 if settings.DEBUG:

@@ -1,0 +1,36 @@
+<!-- menu -->
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container">
+
+            <!-- Be sure to leave the brand out there if you want it shown -->
+            <h1><a class="brand" href="{% url account.views.dashboard %}">Fitnets</a></h1>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li><a href="{% url account.views.profile request.user.username %}">Perfil</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projetos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Novo Projeto</a></li>
+                            <li><a href="#">Gerenciar projetos</a></li>
+                            <li><a href="#">Pesquisar projetos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Mural</a></li>
+                    <li><a href="#">Amigos</a></li>
+                    <li><a href="#">Pesquisar</a></li>
+                </ul>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sua Conta <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-header">Moacir</li>
+                            <li><a href="#">Editar Perfil</a></li>
+                            <li><a href="#">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

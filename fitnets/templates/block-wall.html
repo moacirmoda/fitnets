@@ -1,0 +1,41 @@
+<script>
+
+function like(id) {
+	url = '{% url wall.views.like 0 %}'.replace(0, id);
+	$.get(url, function(data) {
+		if(data > -1) {
+			$('#like_'+id).html(data);
+		} else {
+			alert("Ocorreu um erro");
+		}
+	});
+}
+
+function unlike(id) {
+	url = '{% url wall.views.unlike 0 %}'.replace(0, id);
+	$.get(url, function(data) {
+		if(data > -1) {
+			$('#unlike_'+id).html(data);
+		} else {
+			alert("Ocorreu um erro");
+		}
+	});
+}
+
+
+</script>
+
+{% if posts|length %}
+	{% for post in posts %}
+		<div class="item">
+		    <p>{{ post.message }}</p>
+		    <small>{{ post.created }}</small>
+		    <div class="actions">
+		        <a href="javascript: like('{{ post.id }}');" class="btn btn-small"><i class="icon-thumbs-up"></i> <span id="like_{{ post.id }}">{{ post.like }}</span></a>
+		        <a href="javascript: unlike('{{ post.id }}');" class="btn btn-small"><i class="icon-thumbs-down"></i> <span id="unlike_{{ post.id }}">{{ post.non_like }}</span></a>
+		    </div>
+		</div>
+	{% endfor %}
+{% else %}
+	<i>Não há publicações.</i>
+{% endif %}
