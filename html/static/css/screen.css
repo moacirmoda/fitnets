@@ -201,6 +201,18 @@ img {
     /*border-bottom: 1px solid #ddd;   */
 }
 
+.form-project div {
+    margin-top: 10px;
+}
+
+.form-project input, .form-project textarea, .form-project select {
+    width: 100%;
+}
+.form-project .span12 input {
+    font-size: 150%;
+    padding: 15px 0 15px 10px;
+}
+
 
 .footer {
     padding: 20px 10px;    
