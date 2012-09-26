@@ -217,6 +217,18 @@ img {
     margin: 10px 10px 0 0;
 }
 
+.photo {
+    margin: 0 auto;
+    width: 800px;
+    text-align: center;
+}
+.photo .desc {
+    margin: 10px 0 0 0;
+}
+.photo .desc .actions {
+    margin: 10px 0 0 0;
+}
+
 
 .footer {
     padding: 20px 10px;    
