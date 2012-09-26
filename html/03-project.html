@@ -13,6 +13,16 @@
         <link href="static/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="static/css/screen.css" media="screen" rel="stylesheet" type="text/css" />
 
+        <script>
+            $(function(){
+                $(".treino .muscle_group .blockContent").hide();
+                $(".treino h4").click(function(){
+                    $('.treino .muscle_group .blockContent').hide(400);
+                    $(this).next('.blockContent').slideDown();
+                });
+            });
+        </script>
+
     </head>
     <body>
 
@@ -55,7 +65,7 @@
         <!-- fim menu -->
 
         <!-- conteudo -->
-        <div class="container content profile">
+        <div class="container content profile">            
             <div class="row">
                 
                 <div class="span3 side">
@@ -110,6 +120,52 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="span12">
+                    <div class="block treino">
+                        <h3>Treino</h3>
+                        <div class="blockContent">
+                            <ul>
+                                <li class="muscle_group">
+                                    <h4>Peitoral</h4>
+                                    <div class="blockContent">
+                                        <ul>
+                                            <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="muscle_group">
+                                    <h4>Peitoral</h4>
+                                    <div class="blockContent">
+                                        <ul>
+                                            <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="muscle_group">
+                                    <h4>Peitoral</h4>
+                                    <div class="blockContent">
+                                        <ul>
+                                            <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                            <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <!-- block evolucao -->
                 <div class="span4">
@@ -144,9 +200,7 @@
                 <!-- block treino -->
                 <div class="span4">
                     <div class="block treino">
-                        <h3>Treino
-                            <small><a href="#">ver todo treino</a>
-                        </h3>
+                        <h3>Treino</h3>
                         <div class="blockContent">
                             <div class="item">
                                 <h4>Peitoral</h4>
