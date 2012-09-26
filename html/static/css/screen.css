@@ -229,6 +229,11 @@ img {
     margin: 10px 0 0 0;
 }
 
+.content form .buttons {
+    float: inherit !important;
+    margin: 10px 0 !important;
+}
+
 
 .footer {
     padding: 20px 10px;    
