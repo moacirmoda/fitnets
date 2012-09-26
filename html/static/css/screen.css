@@ -213,6 +213,10 @@ img {
     padding: 15px 0 15px 10px;
 }
 
+.content .friends .item img {
+    margin: 10px 10px 0 0;
+}
+
 
 .footer {
     padding: 20px 10px;    
