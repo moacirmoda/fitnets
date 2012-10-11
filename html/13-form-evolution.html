@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='pt'>
+    <head>
+        <meta charset="utf-8" >
+        <!-- scripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="static/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="static/js/functions.js" type="text/javascript"></script>
+        
+        <!-- css -->
+        <link href="static/css/normalize.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="static/bootstrap/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="static/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="static/css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+
+        <script>
+            $(function(){
+                $(".treino .muscle_group .blockContent").hide();
+                $(".treino h4").click(function(){
+                    $('.treino .muscle_group .blockContent').hide(400);
+                    $(this).next('.blockContent').slideDown();
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+        <!-- menu -->
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- Be sure to leave the brand out there if you want it shown -->
+                    <h1><a class="brand" href="01-dashboard.html">Fitnets</a></h1>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="02-profile.html">Perfil</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projetos <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Novo Projeto</a></li>
+                                    <li><a href="#">Gerenciar projetos</a></li>
+                                    <li><a href="#">Pesquisar projetos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Mural</a></li>
+                            <li><a href="#">Amigos</a></li>
+                            <li><a href="04-search.html">Pesquisar</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sua Conta <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-header">Moacir</li>
+                                    <li><a href="#">Editar Perfil</a></li>
+                                    <li><a href="00-login.html">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fim menu -->
+
+        <!-- conteudo -->
+        <div class="container content profile">            
+            <div class="row">
+                
+                <div class="span3 side">
+                    <div class="fotoPerfil">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-hope-solo.jpg" />
+                    </div>
+                </div>
+
+                <div class="span9">
+                    <h2>Perca de Peso <small>(por Moacir)</small></h2>
+                    <div class="block about">
+                        <p>
+                            <i class="icon-time"></i><b> Início:</b> 06/05/2012  
+                            <i class="icon-time"></i><b> Duração:</b> 12 meses<br>
+                            <b>Tipo de Treino:</b> ABC<br>
+                            <b>Frequência semanal:</b> 6 vezes<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span12">
+                    <div class="block treino">
+                        <h3>Nova Foto de Evolução</h3>
+                        <div class="blockContent">
+                            <form name="evolucao" method="POST" class="form">
+                                
+                                <label for="data">Data</label>
+                                <input type="date" name="data" id="data">
+
+                                <label for="foto">Foto</label>
+                                <input type="file" name="foto" id="foto">
+                                
+                                <div class="buttons">
+                                    <button type="submit" class="btn"><b>Criar</b></button>
+                                    <button type="reset" class="btn">Limpar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <!-- fim coutendo -->
+
+        <!-- footer -->
+        <div class="footer">
+            <p>Fitnets 2012 - Criado e idealizado por Mexx Soluções Web</p>
+        </div>
+    </body>
+</html>
