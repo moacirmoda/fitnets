@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^messages/', include('messages.urls')),
     url(r'profile/', include('account.urls')),
     url(r'wall/', include('wall.urls')),
+    url(r'friends/', include('friends.urls')),
+    url(r'', include('main.urls')),
 )
 
 if settings.DEBUG:
