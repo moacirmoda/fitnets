@@ -20,8 +20,8 @@
 
 
                 <br>
-                {% if user|is_friend_pending:request.user %}(amizade pendente){% endif %}
-                {% if not request.user|is_friend:user and user != request.user and not user|is_friend_pending:request.user %}
+                {% if request.user|is_friend_pending:user %}(amizade pendente){% endif %}
+                {% if not request.user|is_friend:user and user != request.user and not request.user|is_friend_pending:user %}
                     <a href="{% url friendship_request user %}" class="btn">Solicitar amizade</a>
                 {% endif %}
 
