@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "account/topbar.html" %}
+<div class="row">
+    <!-- block atividades -->
+    <div class="span4">
+        <div class="block projetos">
+            <h3>Projetos</h3>
+            <div class="blockContent">
+                <div class="item">
+                    <a href="#">
+                        <img src="http://www.shopfato.com.br/arquivos/ids/28035_3/3540_3.jpg">
+                        <b>Definição e perda de peso</b> <br>
+                        <small>
+                            Criado em 25/07/2012<br>
+                            Duração: 12 meses.
+                        </small>
+                    </a>
+                </div>
+                <div class="clear"></div>
+                <div class="item">
+                    <a href="#">
+                        <img src="http://www.shopfato.com.br/arquivos/ids/28035_3/3540_3.jpg">
+                        <b>Definição e perda de peso</b> <br>
+                        <small>
+                            Criado em 25/07/2012<br>
+                            Duração: 12 meses.
+                        </small>
+                    </a>
+                </div>
+                <div class="clear"></div>
+                <div class="item">
+                    <a href="#">
+                        <img src="http://www.shopfato.com.br/arquivos/ids/28035_3/3540_3.jpg">
+                        <b>Definição e perda de peso</b> <br>
+                        <small>
+                            Criado em 25/07/2012<br>
+                            Duração: 12 meses.
+                        </small>
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+        </div>
+
+        <div class="block fotos">
+            <h3>Últimas fotos</h3>
+            <div class="blockContent">
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+        </div>
+
+        <!-- block amigos -->
+        <div class="block fotos">
+            <h3>
+                Amigos
+                <small><a href="#">ver todos</a>
+            </h3>
+            <div class="blockContent">
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="http://placehold.it/94x94"></a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+        </div>
+    </div>
+    <!-- fim block atividades -->
+
+    <!-- block ultimas publicacoes -->
+    <div class="span8">
+        <div class="block ultimas-publicacoes">
+            <h3>Últimas publicações</h3>
+            <div class="blockContent">
+                {% include "block-wall.html" %}
+            </div>
+            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+        </div>
+    </div>
+    <!-- fim bloco projetos -->
+</div>
+{% endblock %}

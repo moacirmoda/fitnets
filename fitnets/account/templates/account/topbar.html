@@ -1,0 +1,32 @@
+{% load filters %}
+<div class="row">
+    {% include "account/avatar.html" %}
+    <div class="span9">
+        <h2>{{ user.get_profile.get_full_name }}</h2>
+        <div class="block about">
+            <p>
+                Nascido em 06 de Janeiro de 1991<br>
+                Registrado desde 21 de Junho de 2012
+            </p>
+            <p>
+                <i class="icon-flag"></i> 2 Projeto(s) finalizado(s)<br>
+                <i class="icon-star"></i> 1 Projeto(s) em andamento<br>
+                <a href="{% url friends.views.all user %}">
+                    <i class="icon-user"></i> {{ friends|length }} amigo(s)
+                </a>
+                {% if request.user|is_friend:user %}(seu amigo){% endif %}
+                <br>
+                
+
+
+                <br>
+                {% if user|is_friend_pending:request.user %}(amizade pendente){% endif %}
+                {% if not request.user|is_friend:user and user != request.user and not user|is_friend_pending:request.user %}
+                    <a href="{% url friendship_request user %}" class="btn">Solicitar amizade</a>
+                {% endif %}
+
+            </p>
+        </div>
+        <!-- fim block friends -->
+    </div>
+</div>
