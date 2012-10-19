@@ -2,47 +2,7 @@
 
 {% block content %}
 
-	<div class="row">
-                
-        <div class="span3 side">
-            <div class="fotoPerfil">
-                <img src="{{ request.user.get_profile.get_avatar }}" />
-                <a href="#" class="btn btn-small btn-info">Mudar foto perfil</a>
-            </div>
-        </div>
-
-        <div class="span9">
-            <h2>Bem vindo, Moacir</h2>
-
-            <!-- block friends -->
-            <div class="block friends">
-                <h3>Solicitações de amizade</h3>
-                <div class="blockContent">
-                    <div class="item friend">
-                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-michael-phelps-p.jpg" />
-                        <p><b>Phelps</b> <small>quer ser seu amigo</small></p>
-                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
-                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
-                    </div>
-
-                    <div class="item friend">
-                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-robert-scheidt-p.jpg" />
-                        <p><b>Schneider</b> <small>quer ser seu amigo</small></p>
-                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
-                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
-                    </div>
-
-                    <div class="item friend">
-                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-neymar-p.jpg" />
-                        <p><b>Neymar</b> <small>quer ser seu amigo</small></p>
-                        <a href="#" class="btn btn-small"><i class="icon-ok"></i></a>
-                        <a href="#" class="btn btn-small"><i class="icon-remove"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- fim block friends -->
-        </div>
-    </div>
+	{% include "account/topbar.html" %}
     <div class="row">
         <!-- block atividades -->
         <div class="span6">

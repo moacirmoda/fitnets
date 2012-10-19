@@ -64,10 +64,25 @@ class FriendshipManager(models.Manager):
         return qs
 
     def are_friends(self, user1, user2):
-        return bool(Friendship.objects.get(user=user1).friends.filter(
-                                                          user=user2).exists())
+        try:
+            return bool(Friendship.objects.get(user=user1).friends.filter(user=user2).exists())
+        except:
+            return False
+
+    def is_pending(self, user1, user2):
+        request = FriendshipRequest.objects.filter(from_user=user1, to_user=user2, accepted=False)
+        if request:
+            return True
+
+        return False
 
     def befriend(self, user1, user2):
+        try:
+            ship = Friendship.objects.get(user=user1)
+        except Friendship.DoesNotExist:
+            ship = Friendship(user=user1)
+            ship.save()
+
         Friendship.objects.get(user=user1).friends.add(
                                            Friendship.objects.get(user=user2))
         # Now that user1 accepted user2's friend request we should delete any

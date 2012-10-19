@@ -24,4 +24,6 @@ urlpatterns = patterns(
     url(r'^unblock/(?P<username>[\+\w\.@-_]+)/$',
         'user_unblock',
         name='user_unblock'),
+
+    url(r'^all/(?P<username>[\+\w\.@-_]+)/$', 'all'),
 )

@@ -4,16 +4,16 @@
     "model": "auth.user", 
     "fields": {
       "username": "moa", 
-      "first_name": "", 
-      "last_name": "", 
+      "first_name": "Moacir", 
+      "last_name": "Neto", 
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-09-18 16:33:46", 
+      "last_login": "2012-10-19 15:44:30", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$63e18$390d6ff3c1d7d4408229e5c62ab6d0570461b320", 
-      "email": "1@1.com", 
+      "email": "moa.moda@gmail.com", 
       "date_joined": "2012-09-06 10:31:48"
     }
   }, 
@@ -34,5 +34,24 @@
       "email": "", 
       "date_joined": "2012-09-06 11:27:18"
     }
+  }, 
+  {
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "luan", 
+      "first_name": "Luan", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2012-10-19 15:45:02", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$6d25c$7a21cb5f228030fd71417644a064da301bb743ce", 
+      "email": "asc.luan@gmail.com", 
+      "date_joined": "2012-10-19 15:45:02"
+    }
   }
+
 ]

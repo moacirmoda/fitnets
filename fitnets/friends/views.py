@@ -53,12 +53,13 @@ View Functions
 from django.http import HttpResponseBadRequest, Http404
 from django.db import transaction
 from django.views.generic.base import RedirectView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render_to_response
 from django.utils.translation import ugettext
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from models import FriendshipRequest, Friendship
 from app_settings import REDIRECT_FALLBACK_TO_PROFILE
+from django.template import RequestContext
 
 
 class BaseFriendshipActionView(RedirectView):
@@ -153,3 +154,19 @@ friendship_cancel = login_required(FriendshipCancelView.as_view())
 friendship_delete = login_required(FriendshipDeleteView.as_view())
 user_block = login_required(FriendshipBlockView.as_view())
 user_unblock = login_required(FriendshipUnblockView.as_view())
+
+def all(request, username):
+    output = {}
+    user = get_object_or_404(User, username=username)
+    friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
+
+    new_friends = []
+    for friend in friends:
+        friend = User.objects.get(id=friend)
+        new_friends.append(friend)
+        
+    output['friends'] = new_friends
+    output['user'] = user
+
+    return render_to_response("friends/all.html", output, context_instance=RequestContext(request))
+

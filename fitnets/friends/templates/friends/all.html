@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- conteudo -->
+<div class="container content profile">
+    {% include "account/topbar.html" %}
+
+    <div class="row">
+        <div class="span12 block friends">
+            <h3>Amigos <small>({{ friends|length }})</small></h3>
+            <div class="blockContent">
+                <div class="item">
+                    {% for friend in friends %}
+                        <a href="{{ friend.get_profile.permalink }}" title="{{ friend.get_profile.get_full_name }}">
+                            <img src="{{ friend.get_profile.get_medium_avatar }}" title="{{ friend.get_profile.get_full_name }}">
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="clear"></div>
+            <!-- <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></div> -->
+        </div>
+    </div>
+</div>
+<!-- fim coutendo -->
+{% endblock %}

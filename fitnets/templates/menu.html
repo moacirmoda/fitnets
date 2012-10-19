@@ -19,16 +19,16 @@
                         </ul>
                     </li>
                     <li><a href="#">Mural</a></li>
-                    <li><a href="#">Amigos</a></li>
+                    <li><a href="{% url friends.views.all request.user %}">Amigos</a></li>
                     <li><a href="#">Pesquisar</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sua Conta <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="nav-header">Moacir</li>
+                            <li class="nav-header">{% if request.user.first_name %}{{ request.user.first_name }}{% else %}{{ request.user }}{% endif %}</li>
                             <li><a href="#">Editar Perfil</a></li>
-                            <li><a href="#">Sair</a></li>
+                            <li><a href="{% url django.contrib.auth.views.logout %}">Sair</a></li>
                         </ul>
                     </li>
                 </ul>
