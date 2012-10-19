@@ -116,12 +116,15 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'fitnets.urls'
+AUTH_PROFILE_MODULE = 'account.UserProfile'
+LOGIN_REDIRECT_URL = '/profile/dashboard/'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(os.getcwd(), "templates"),
+    'account/templates',
 )
 
 SERVE_STATIC_FILES = True
@@ -139,7 +142,10 @@ INSTALLED_APPS = (
     'registration',
     'messages',
 
+    'account',
     'wall',
+    'friends',
+
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
