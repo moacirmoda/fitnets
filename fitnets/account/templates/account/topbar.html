@@ -1,12 +1,26 @@
 {% load filters %}
+
+<script>
+$(function(){
+    $(".more").hide();
+});
+
+function open_more() {
+    $("#more").hide();
+    $(".more").slideDown();
+}
+</script>
+
 <div class="row">
     {% include "account/avatar.html" %}
     <div class="span9">
         <h2>{{ user.get_profile.get_full_name }}</h2>
         <div class="block about">
             <p>
-                Nascido em 06 de Janeiro de 1991<br>
-                Registrado desde 21 de Junho de 2012
+                {% if user.get_profile.born %}
+                    Nascido em {{ user.get_profile.born|date:"d \d\e F \d\e Y" }}<br>
+                {% endif %}
+                Registrado desde <span title="{{ user.get_profile.created }}">{{ user.get_profile.created|date:"d \d\e F \d\e Y" }}</span>
             </p>
             <p>
                 <i class="icon-flag"></i> 2 Projeto(s) finalizado(s)<br>
@@ -16,16 +30,22 @@
                 </a>
                 {% if request.user|is_friend:user %}(seu amigo){% endif %}
                 <br>
-                
-
 
                 <br>
                 {% if request.user|is_friend_pending:user %}(amizade pendente){% endif %}
                 {% if not request.user|is_friend:user and user != request.user and not request.user|is_friend_pending:user %}
                     <a href="{% url friendship_request user %}" class="btn">Solicitar amizade</a>
                 {% endif %}
-
             </p>
+
+            <a href="javascript:open_more();" title="Ver mais informações" class="btn btn-mini" id="more">Ver mais informações</a>
+            {% if user.get_profile.bio or user.get_profile.height or user.get_profile.height %}
+            <div class="more">
+                {% if user.get_profile.height %}Altura: {{ user.get_profile.get_height_in_meters }} m<br>{% endif %}
+                {% if user.get_profile.weight %}Peso: {{ user.get_profile.weight }} kg<br>{% endif %}
+                {% if user.get_profile.bio %}<br>Sobre: <br><i>{{ user.get_profile.bio }}</i><br>{% endif %}
+            </div>
+            {% endif %}
         </div>
         <!-- fim block friends -->
     </div>

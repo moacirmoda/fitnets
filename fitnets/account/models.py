@@ -5,6 +5,7 @@ from main.utils import gravatar
 from datetime import datetime as dt
 from django.db import models
 from friends.models import *
+from decimal import Decimal
 
 class UserProfile(models.Model):
 
@@ -31,6 +32,12 @@ class UserProfile(models.Model):
     def get_mini_avatar(self):
         return self.get_avatar(size=66)
         
+    def get_height_in_meters(self):
+        return Decimal(self.height)/Decimal(100)
+    
+    def get_weight_in_kg(self):
+        return unicode("%s m" % Decimal(self.weight)/Decimal(100))
+
     def get_name(self):
         if self.user.first_name:
             return unicode(self.user.first_name)
