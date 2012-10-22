@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+<script>
+function get_more_wall() {
+
+    block = $(".ultimas-publicacoes .blockContent");
+    items = $(".ultimas-publicacoes .blockContent .item").length;
+    url = "{% url wall.views.more user.id 0 %}".replace('/0', "/" + items);
+    $.get(url, function(data) {
+        if(data != -1) {
+            block.append(data);
+        } else {
+            alert("Não existem mais posts");
+        }
+    });
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 {% include "account/topbar.html" %}
@@ -109,9 +127,9 @@
         <div class="block ultimas-publicacoes">
             <h3>Últimas publicações</h3>
             <div class="blockContent">
-                {% include "block-wall.html" %}
+                {% include "wall/block-wall.html" %}
             </div>
-            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            <div class="buttons"><a href="javascript:get_more_wall();" class="btn btn-small">ver mais</a></a></div>
         </div>
     </div>
     <!-- fim bloco projetos -->

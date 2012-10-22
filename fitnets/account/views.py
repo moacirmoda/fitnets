@@ -11,7 +11,7 @@ from friends.models import *
 def profile(request, username):
 
     user = get_object_or_404(User, username=username)
-    posts = Post.objects.filter(user=user).filter(parent=None)
+    posts = Post.objects.filter(user=user).filter(parent=None)[:10]
 
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
     output = {

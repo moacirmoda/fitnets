@@ -1,5 +1,5 @@
+{% block scripts %}
 <script>
-
 function like(id) {
 	url = '{% url wall.views.like 0 %}'.replace(0, id);
 	$.get(url, function(data) {
@@ -21,9 +21,8 @@ function unlike(id) {
 		}
 	});
 }
-
-
 </script>
+{% endblock %}
 
 {% if posts|length %}
 	{% for post in posts %}

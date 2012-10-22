@@ -125,6 +125,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(os.getcwd(), "templates"),
     'account/templates',
+    'wall/templates',
 )
 
 SERVE_STATIC_FILES = True
