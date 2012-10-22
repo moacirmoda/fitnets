@@ -1,6 +1,69 @@
 [
   {
     "pk": 1, 
+    "model": "account.userprofile", 
+    "fields": {
+      "bio": "Este \u00e9 meu perfil.", 
+      "weight": 85, 
+      "created": "2012-10-22 15:01:30", 
+      "height": 191, 
+      "born": "1991-01-06", 
+      "facebook": "https://www.facebook.com/moa.moda", 
+      "user": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "account.userprofile", 
+    "fields": {
+      "bio": null, 
+      "weight": null, 
+      "created": "2012-10-22 15:01:30", 
+      "height": null, 
+      "born": null, 
+      "facebook": null, 
+      "user": 2
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "account.userprofile", 
+    "fields": {
+      "bio": null, 
+      "weight": null, 
+      "created": "2012-10-22 15:01:30", 
+      "height": null, 
+      "born": null, 
+      "facebook": null, 
+      "user": 3
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "friends.friendship", 
+    "fields": {
+      "friends": [], 
+      "user": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "friends.friendship", 
+    "fields": {
+      "friends": [], 
+      "user": 2
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "friends.friendship", 
+    "fields": {
+      "friends": [], 
+      "user": 3
+    }
+  }, 
+  {
+    "pk": 1, 
     "model": "auth.user", 
     "fields": {
       "username": "moa", 
@@ -9,7 +72,7 @@
       "is_active": true, 
       "is_superuser": true, 
       "is_staff": true, 
-      "last_login": "2012-10-19 15:44:30", 
+      "last_login": "2012-10-22 15:01:52", 
       "groups": [], 
       "user_permissions": [], 
       "password": "sha1$63e18$390d6ff3c1d7d4408229e5c62ab6d0570461b320", 
@@ -53,5 +116,4 @@
       "date_joined": "2012-10-19 15:45:02"
     }
   }
-
 ]

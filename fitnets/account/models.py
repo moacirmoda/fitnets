@@ -2,12 +2,19 @@ from django.db.models import signals as SIGNALS
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from main.utils import gravatar
+from datetime import datetime as dt
 from django.db import models
 from friends.models import *
 
 class UserProfile(models.Model):
 
     user = models.ForeignKey(User, unique=True)
+    height = models.IntegerField("altura", blank=True, null=True)
+    bio = models.TextField("sobre", blank=True, null=True)
+    weight = models.IntegerField("peso", blank=True, null=True)
+    facebook = models.URLField("facebook", blank=True, null=True)
+    created = models.DateTimeField("data de registro", default=dt.now(), editable=False)
+    born = models.DateField("nascimento", blank=True, null=True)
 
     def permalink(self):
         return reverse('account.views.profile', kwargs={'username': self.user})
