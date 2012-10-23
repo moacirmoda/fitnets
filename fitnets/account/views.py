@@ -3,9 +3,10 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.template import RequestContext
+from friends.models import *
 from wall.models import *
 from wall.forms import *
-from friends.models import *
+from forms import *
 
 @login_required
 def profile(request, username):
@@ -41,6 +42,25 @@ def dashboard(request):
         'friends': friends,
     }
 
-
-
     return render_to_response("account/dashboard.html", output, context_instance=RequestContext(request))
+
+@login_required
+def edit_profile(request):
+
+    output = {}
+    user = request.user
+    profile = user.get_profile()
+    form = EditUserForm(instance=profile)
+
+    if request.POST:
+        form = EditUserForm(request.POST, instance=profile)
+
+        if form.is_valid():
+            form.save()
+
+    output['form'] = form
+    output['user'] = user
+
+    return render_to_response("account/edit_profile.html", output, context_instance=RequestContext(request))
+
+

@@ -25,7 +25,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sua Conta <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="nav-header">{% if request.user.first_name %}{{ request.user.first_name }}{% else %}{{ request.user }}{% endif %}</li>
-                            <li><a href="#">Editar Perfil</a></li>
+                            <li><a href="{% url account.views.edit_profile %}">Editar Perfil</a></li>
                             <li><a href="{% url django.contrib.auth.views.logout %}">Sair</a></li>
                         </ul>
                     </li>

@@ -201,6 +201,16 @@ img {
     /*border-bottom: 1px solid #ddd;   */
 }
 
+.form .left input, .form .left textarea, .form .right input, .form .right textarea {
+    width: 90%;
+}
+
+.form .left, .form .right {
+    float: left;
+    margin: 0 10px;
+    width: 400px;
+}
+
 
 .footer {
     padding: 20px 10px;    
