@@ -10,12 +10,13 @@ from decimal import Decimal
 class UserProfile(models.Model):
 
     user = models.ForeignKey(User, unique=True)
+    created = models.DateTimeField("data de registro", default=dt.now(), editable=False)
+    
+    born = models.DateField("nascimento", blank=True, null=True)
     height = models.IntegerField("altura", blank=True, null=True)
-    bio = models.TextField("sobre", blank=True, null=True)
     weight = models.IntegerField("peso", blank=True, null=True)
     facebook = models.URLField("facebook", blank=True, null=True)
-    created = models.DateTimeField("data de registro", default=dt.now(), editable=False)
-    born = models.DateField("nascimento", blank=True, null=True)
+    bio = models.TextField("sobre", blank=True, null=True)
 
     def permalink(self):
         return reverse('account.views.profile', kwargs={'username': self.user})
