@@ -6,6 +6,6 @@ Saber o que voce mudou -> git status
 
 Coloca na fila de commit -> git add .
 
-Comita a porra toda -> git commit -m "comentarios"
+Comita a porra toda -> git commit -a -m "comentarios"
 
 Enviar para o servidor -> git push origin master
