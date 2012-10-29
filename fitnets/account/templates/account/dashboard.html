@@ -6,7 +6,7 @@
     <div class="row">
 	   {% include "account/avatar.html" %}
         <div class="span9">
-            <h2>Bem vindo, Moacir</h2>
+            <h2>Bem vindo, {% if request.user.first_name %}{{ request.user.get_full_name }}{% else %}{{ request.user }}{% endif %}</h2>
 
             <!-- block friends -->
             <div class="block friends">
