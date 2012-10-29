@@ -1,4 +1,4 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
+fitnets/local_settings.py
