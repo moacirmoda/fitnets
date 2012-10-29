@@ -177,3 +177,5 @@ LOGGING = {
 LOGIN_REDIRECT_URL = '/'
 # registration
 ACCOUNT_ACTIVATION_DAYS = 7
+
+from settings_local import *
