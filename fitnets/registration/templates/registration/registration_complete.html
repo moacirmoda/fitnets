@@ -1,6 +1,13 @@
 {% extends "registration/registration_base.html" %}
-{% block title %}Activation email sent{% endblock %}
-{% block content %}
-An activation email has been sent.  Please check your email and click on the link to activate your account.
-{% endblock %}
 
+{% block title %}Registrar-se | {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<div class="span5 login">
+    <div class="block">
+        Seu registro foi feito com sucesso!<br>
+        Clique <a href="{% url main.views.index %}">aqui</a> para se logar.
+    </div>
+</div>
+{% endblock %}
