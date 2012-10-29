@@ -178,9 +178,6 @@ LOGIN_REDIRECT_URL = '/'
 # registration
 ACCOUNT_ACTIVATION_DAYS = 7
 
-from settings_local import *
-
-if not DEBUG:
-    import dj_database_url
-    DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
