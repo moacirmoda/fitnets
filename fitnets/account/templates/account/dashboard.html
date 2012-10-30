@@ -12,14 +12,18 @@
             <div class="block friends">
                 <h3>Solicitações de amizade</h3>
                 <div class="blockContent">
-                    {% for friend in friend_pending %}
-                        <div class="item friend">
-                            <img src="{{ friend.from_user.get_profile.get_mini_avatar }}" />
-                            <p><b>{{ friend.from_user.get_profile.get_name }}</b> <small>quer ser seu amigo</small></p>
-                            <a href="{% url friendship_accept friend.from_user %}" class="btn btn-small"><i class="icon-ok"></i></a>
-                            <a href="{% url friendship_decline friend.from_user %}" class="btn btn-small"><i class="icon-remove"></i></a>
-                        </div>
-                    {% endfor %}
+                    {% if friend_pending %}
+                        {% for friend in friend_pending %}
+                            <div class="item friend">
+                                <img src="{{ friend.from_user.get_profile.get_mini_avatar }}" />
+                                <p><b>{{ friend.from_user.get_profile.get_name }}</b> <small>quer ser seu amigo</small></p>
+                                <a href="{% url friendship_accept friend.from_user %}" class="btn btn-small"><i class="icon-ok"></i></a>
+                                <a href="{% url friendship_decline friend.from_user %}" class="btn btn-small"><i class="icon-remove"></i></a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <i>(não há solicitações de amizade)</i>
+                    {% endif %}
                 </div>
             </div>
             <!-- fim block friends -->
