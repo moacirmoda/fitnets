@@ -13,6 +13,8 @@ class Project(Generic):
     duration = models.IntegerField("duração")
     init = models.DateField("data de início", default=datetime.today())
     frequency = models.IntegerField("frequência")
+    finished = models.BooleanField("finalizado?")
+    comment = models.TextField("comentários", blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.objective)

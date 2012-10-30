@@ -9,7 +9,7 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        # exclude = ('creator', 'created', 'updater', 'updated')
+        exclude = ('comment', 'finished')
 
     init = forms.CharField(label="Data de Início", widget=DateInput())
     duration = forms.CharField(label="Duração (em meses)", widget=NumberInput(attrs={'min': 1, 'max': 12}))
