@@ -4,6 +4,14 @@
 
 {% include "account/topbar.html" %}
 
+<div class="span12 block">
+    <ul>
+        <li><a href="{% url project.views.list user 'closed' %}">Exibir somente finalizados</a></li>
+        <li><a href="{% url project.views.list user %}">Exibir somente abertos</a></li>
+        <li><a href="{% url project.views.list user 'all' %}">Exibir todos</a></li>
+    </ul>
+</div>
+
 <div class="span12 block ultimas-publicacoes">
     <h3>Seus Projetos <small>
         {% if type == 'closed' %}(finalizados){% endif %}
