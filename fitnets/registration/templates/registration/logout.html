@@ -1,5 +1,12 @@
 {% extends "registration/registration_base.html" %}
 {% block title %}Logged out{% endblock %}
+
 {% block content %}
-Successfully logged out!
+    <div class="row">
+        <div class="span12">
+            Logout realizado com sucesso. <br>
+            Clique <a href="{% url main.views.index %}" title="Login">aqui</a> para se logar novamente.
+        </div>
+    </div>
+    
 {% endblock %}
