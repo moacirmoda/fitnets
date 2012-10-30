@@ -16,6 +16,10 @@ urlpatterns = patterns('',
     url(r'friends/', include('friends.urls')),
     url(r'project/', include('project.urls')),
     url(r'', include('main.urls')),
+
+    url(r'^user/(?P<username>[\w_-]+)/?$', 'account.views.profile'),
+    url(r'^user/(?P<username>[\w_-]+)/projects/?$', 'project.views.list'),
+    url(r'^user/(?P<username>[\w_-]+)/projects/(?P<type>[\w_-]+)/?$', 'project.views.list'),
 )
 
 if settings.DEBUG:
