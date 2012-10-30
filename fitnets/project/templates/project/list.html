@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "account/topbar.html" %}
+
+<div class="span12 block ultimas-publicacoes">
+    <h3>Seus Projetos <small>
+        {% if type == 'closed' %}(finalizados){% endif %}
+        {% if type == 'all' %}(todos){% endif %}
+        {% if type != 'all' and not finished %}(abertos){% endif %}
+    </small></h3>
+    <div class="blockContent">
+        {% for project in projects %}
+            <div class="item">
+                <h4><a href="#">{{ project.objective|capfirst }}</a></h4>
+                <b>Data de início:</b> {{ project.init }}<br>
+                <b>Duração:</b> {{ project.duration }} meses <br>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></div>
+</div>
+{% endblock %}

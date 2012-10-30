@@ -14,7 +14,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projetos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url project.views.new %}">Novo Projeto</a></li>
-                            <li><a href="#">Gerenciar projetos</a></li>                            
+                            <li><a href="{% url project.views.list user "all" %}">Gerenciar projetos</a></li>                            
                         </ul>
                     </li>
                     <li><a href="{% url friends.views.all request.user %}">Amigos</a></li>
