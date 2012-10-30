@@ -13,12 +13,14 @@ def profile(request, username):
 
     user = get_object_or_404(User, username=username)
     posts = Post.objects.filter(user=user).filter(parent=None)[:10]
+    projects = Project.objects.filter(creator=user).filter(finished=False)[:6]
 
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
     output = {
         'user': user,
         'posts': posts,
         'friends': friends,
+        'projects': projects,
     }
 
     return render_to_response("account/profile.html", output, context_instance=RequestContext(request))
