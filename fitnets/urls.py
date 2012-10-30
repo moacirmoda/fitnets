@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'profile/', include('account.urls')),
     url(r'wall/', include('wall.urls')),
     url(r'friends/', include('friends.urls')),
+    url(r'project/', include('project.urls')),
     url(r'', include('main.urls')),
 )
 

@@ -201,14 +201,37 @@ img {
     /*border-bottom: 1px solid #ddd;   */
 }
 
-.form .left input, .form .left textarea, .form .right input, .form .right textarea {
-    width: 90%;
+.form-project div {
+    margin-top: 10px;
 }
 
-.form .left, .form .right {
-    float: left;
-    margin: 0 10px;
-    width: 400px;
+.form-project input, .form-project textarea, .form-project select {
+    width: 100%;
+}
+.form-project .span12 input {
+    font-size: 150%;
+    padding: 15px 0 15px 10px;
+}
+
+.content .friends .item img {
+    margin: 10px 10px 0 0;
+}
+
+.photo {
+    margin: 0 auto;
+    width: 800px;
+    text-align: center;
+}
+.photo .desc {
+    margin: 10px 0 0 0;
+}
+.photo .desc .actions {
+    margin: 10px 0 0 0;
+}
+
+.content form .buttons {
+    float: inherit !important;
+    margin: 10px 0 !important;
 }
 
 
