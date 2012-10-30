@@ -6,6 +6,8 @@ from datetime import datetime as dt
 from django.db import models
 from friends.models import *
 from decimal import Decimal
+from project.models import *
+from datetime import date
 
 class UserProfile(models.Model):
 
@@ -48,6 +50,18 @@ class UserProfile(models.Model):
         if self.user.first_name:
             return unicode("%s %s" % (self.user.first_name, self.user.last_name))
         return unicode(self.user)
+
+    def get_open_projects(self):
+        projects = Project.objects.filter(creator=self.user).filter(finished=False)
+        if projects:
+            return len(projects)
+        return 0
+
+    def get_closed_projects(self):
+        projects = Project.objects.filter(creator=self.user).filter(finished=True)
+        if projects:
+            return len(projects)
+        return 0
 
 def create_profile(sender, instance, created, **kwargs):
     user = instance

@@ -23,8 +23,8 @@ function open_more() {
                 Registrado desde <span title="{{ user.get_profile.created }}">{{ user.get_profile.created|date:"d \d\e F \d\e Y" }}</span>
             </p>
             <p>
-                <i class="icon-flag"></i> 2 Projeto(s) finalizado(s)<br>
-                <i class="icon-star"></i> 1 Projeto(s) em andamento<br>
+                <i class="icon-flag"></i> {{ user.get_profile.get_closed_projects }} Projeto(s) finalizado(s)<br>
+                <i class="icon-star"></i> {{ user.get_profile.get_open_projects }} Projeto(s) em andamento<br>
                 <a href="{% url friends.views.all user %}">
                     <i class="icon-user"></i> {{ friends|length }} amigo(s)
                 </a>
