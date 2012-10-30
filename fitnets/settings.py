@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'account',
     'wall',
     'friends',
+    'project',
 
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
