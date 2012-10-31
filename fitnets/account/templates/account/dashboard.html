@@ -119,9 +119,9 @@
             <div class="block buttons">
                 <h3></h3>
 
-                <a href="#" class="btn btn-large">Crie um novo projeto</a><br>
+                <a href="{% url project.views.new %}" class="btn btn-large">Crie um novo projeto</a><br>
                 <a href="#" class="btn btn-large">Procure amigos</a><br>
-                <a href="#" class="btn btn-large">Edite seu perfil</a><br>
+                <a href="{% url account.views.edit_profile %}" class="btn btn-large">Edite seu perfil</a><br>
             </div>
         </div>
         <!-- fim do bloco buttons -->
