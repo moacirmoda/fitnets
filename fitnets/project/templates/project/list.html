@@ -21,7 +21,7 @@
     <div class="blockContent">
         {% for project in projects %}
             <div class="item">
-                <h4><a href="#">{{ project.objective|capfirst }}</a></h4>
+                <h4><a href="{{ project.permalink }}">{{ project.objective|capfirst }}</a></h4>
                 <b>Data de início:</b> {{ project.init }}<br>
                 <b>Duração:</b> {{ project.duration }} meses <br>
             </div>

@@ -1,4 +1,6 @@
 #! coding: utf-8
+from django.template.defaultfilters import slugify
+from django.core.urlresolvers import reverse
 from django.db import models
 from wall.models import Generic
 from datetime import datetime
@@ -18,3 +20,10 @@ class Project(Generic):
 
     def __unicode__(self):
         return unicode(self.objective)
+
+    def slugify(self):
+        return slugify(unicode(self.objective))
+
+    def permalink(self):
+        return reverse("project.views.show", kwargs={'id': self.id, 'slug': self.slugify()})
+

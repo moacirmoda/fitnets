@@ -30,7 +30,7 @@ function get_more_wall() {
                 {% if projects %}
                     {% for project in projects %}
                         <div class="item">
-                            <a href="#">
+                            <a href="{{ project.permalink }}" title="{{ project.objective }}">
                                 <b>{{ project.objective|capfirst }}</b> <br>
                                 <small>
                                     Início em {{ project.init }}<br>

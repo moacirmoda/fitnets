@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<style>
+    .treino h4, .treino h5 {
+        cursor: pointer;
+    }
+</style>
+<script>
+    $(function(){
+        $(".treino .muscle_group .blockContent").hide();
+        $(".treino h4, .treino h5").click(function(){
+            $(this).next('.blockContent').slideToggle();
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- conteudo -->
+<div class="container content profile">            
+    <div class="row">
+        
+        {% include "account/avatar.html" %}
+
+        <div class="span9">
+            <h2>{{ project.objective|capfirst }}<small>(por {{ project.creator.get_full_name }})</small></h2>
+            <div class="block about">
+                <p>
+                    <i class="icon-time"></i><b> Início:</b> {{ project.init|date:"d/m/Y " }}
+                    <i class="icon-time"></i><b> Duração:</b> {{ project.duration }} meses<br>
+                    <b>Tipo de Treino:</b> ABC<br>
+                    <b>Frequência semanal:</b> {{ project.frequency }} vezes<br>
+                </p>
+                <a href="#" id="showComment" class="btn btn-small btn-primary">Ver Comentários</a>
+            </div>
+            
+            <div class="hide block ultimas-publicacoes">
+                <h2>Comentários</h2>
+                <div class="blockContent">
+                    <div class="item">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-michael-phelps-p.jpg">
+                        <h4>Phelps escreveu:</h4>
+                        <p>
+                            Muito legal esse seu treino. Você pode fazer um treino de perna também.
+                            <br><small>06 de Janeiro de 2012</small>
+                        </p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-small"><i class="icon-thumbs-up"></i> 10</a>
+                            <a href="#" class="btn btn-small"><i class="icon-comment"></i> 33</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="item">
+                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-neymar-p.jpg">
+                        <h4>Neymar escreveu:</h4>
+                        <p>
+                            Muito legal esse seu treino. Você pode fazer um treino de perna também.
+                            <br><small>06 de Janeiro de 2012</small>
+                        </p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-small"><i class="icon-thumbs-up"></i> 10</a>
+                            <a href="#" class="btn btn-small"><i class="icon-comment"></i> 33</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="block treino">
+                <h3>Treino</h3>
+                <div class="blockContent">
+                    <ul>
+                        <li class="muscle_group">
+                            <h4>Treino A</h4>
+                            <div class="blockContent">
+                                <ul>
+                                    <li>
+                                        <h5>Peitoral</h5>
+                                        <div class="blockContent">
+                                            <ul>
+                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h5>Biceps</h5>
+                                        <div class="blockContent">
+                                            <ul>
+                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="muscle_group">
+                            <h4>Treino B</h4>
+                            <div class="blockContent">
+                                <ul>
+                                    <li>
+                                        <h5>Peitoral</h5>
+                                        <div class="blockContent">
+                                            <ul>
+                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h5>Biceps</h5>
+                                        <div class="blockContent">
+                                            <ul>
+                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
+                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- block evolucao -->
+        <div class="span4">
+            <div class="block evolucao">
+                <h3>Evolução</h3>
+                <div class="blockContent">
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="item">
+                        <a href="#"><img src="http://placehold.it/94x94"></a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            </div>
+        </div>
+        <!-- fim block evolucao -->
+
+        <!-- block treino -->
+        <div class="span4">
+            <div class="block treino">
+                <h3>Alimentação</h3>
+                <div class="blockContent">
+                    <div class="item">
+                        <h4>1ª Refeição</h4>
+                        <ul>
+                            <li>Pão</li>
+                            <li>Leite</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4>2ª Refeição</h4>
+                        <ul>
+                            <li>Pão</li>
+                            <li>Leite</li>
+                        </ul>
+                    </div><div class="item">
+                        <h4>3ª Refeição</h4>
+                        <ul>
+                            <li>Pão</li>
+                            <li>Leite</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            </div>
+        </div>
+        <!-- fim block treino -->
+
+        <!-- block suplementação -->
+        <div class="span4">
+            <div class="block treino">
+                <h3>Suplementação</h3>
+                <div class="blockContent">
+                    <div class="item">
+                        <h4>Whey Protein</h4>
+                        <p>
+                            <small><b>Fabricante:</b> X-Lab</small>
+                        </p>
+                    </div>
+                    <div class="item">
+                        <h4>Creatina</h4>
+                        <p>
+                            <small><b>Fabricante:</b> Probiótica</small>
+                        </p>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        <!-- fim block suplementação -->
+    </div>            
+</div>
+<!-- fim coutendo -->
+{% endblock %}

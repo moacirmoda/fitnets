@@ -44,3 +44,14 @@ def list(request, username, type=None):
 
     return render_to_response("project/list.html", output, context_instance=RequestContext(request))
 
+def show(request, id, slug):
+
+    output = {}
+    project = get_object_or_404(Project, id=id)
+
+    output['project'] = project
+
+    return render_to_response("project/show.html", output, context_instance=RequestContext(request))
+    
+    
+
