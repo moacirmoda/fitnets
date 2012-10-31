@@ -234,6 +234,11 @@ img {
     margin: 10px 0 !important;
 }
 
+.container #id_comment {
+    width: 97%;
+    height: 100px;
+}
+
 
 .footer {
     padding: 20px 10px;    

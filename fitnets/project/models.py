@@ -1,9 +1,25 @@
 #! coding: utf-8
+from django_tools.middlewares.ThreadLocal import get_current_user, get_current_request
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 from django.db import models
-from wall.models import Generic
 from datetime import datetime
+
+class Generic(models.Model):
+
+    class Meta:
+        abstract = True
+
+    created = models.DateTimeField("Data de criação", default=datetime.now())
+    updated = models.DateTimeField("Data de atualização", default=datetime.now())
+    creator = models.ForeignKey(User, default=get_current_user(), related_name="+", null=True, blank=True)
+    updater = models.ForeignKey(User, default=get_current_user(), related_name="+", null=True, blank=True)
+
+    def save(self):
+        self.updated = datetime.now()
+        self.updater = get_current_user()
+        super(Generic, self).save()
 
 class Project(Generic):
 

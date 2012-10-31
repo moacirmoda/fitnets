@@ -45,9 +45,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 id="myModalLabel">Comente</h3>
                 </div>
-                <form action="" method="POST">{% csrf_token %}
+                <form action="{% url project.views.comment project.id %}" method="POST">{% csrf_token %}
                     <div class="modal-body">
-
+                        {{ comment_form }}
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-info" type="submit">Comentar</button>
@@ -58,31 +58,21 @@
             <div class="hide block ultimas-publicacoes">
                 <h2>Comentários</h2>
                 <div class="blockContent">
-                    <div class="item">
-                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-michael-phelps-p.jpg">
-                        <h4>Phelps escreveu:</h4>
-                        <p>
-                            Muito legal esse seu treino. Você pode fazer um treino de perna também.
-                            <br><small>06 de Janeiro de 2012</small>
-                        </p>
-                        <div class="actions">
-                            <a href="#" class="btn btn-small"><i class="icon-thumbs-up"></i> 10</a>
-                            <a href="#" class="btn btn-small"><i class="icon-comment"></i> 33</a>
+                    {% if comments %}
+                        {% for comment in comments %}
+                        <div class="item">
+                            <img src="{{ comment.creator.get_profile.get_mini_avatar }}">
+                            <h4>{{ comment.creator.get_full_name }} escreveu:</h4>
+                            <p>
+                                {{ comment }}
+                                <br><small>{{ comment.created }}</small>
+                            </p>
                         </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="item">
-                        <img src="http://veja.abril.com.br/olimpiadas/2012/perfil-atletas/img/perfil-neymar-p.jpg">
-                        <h4>Neymar escreveu:</h4>
-                        <p>
-                            Muito legal esse seu treino. Você pode fazer um treino de perna também.
-                            <br><small>06 de Janeiro de 2012</small>
-                        </p>
-                        <div class="actions">
-                            <a href="#" class="btn btn-small"><i class="icon-thumbs-up"></i> 10</a>
-                            <a href="#" class="btn btn-small"><i class="icon-comment"></i> 33</a>
-                        </div>
-                    </div>
+                        <div class="clear"></div>
+                        {% endfor %}
+                    {% else %}
+                        <i>Não há comentários para este projeto.</i>
+                    {% endif %}
                 </div>
                 <div class="clear"></div>
                 <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>

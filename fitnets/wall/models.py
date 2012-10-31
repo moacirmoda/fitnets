@@ -11,11 +11,12 @@ class Generic(models.Model):
 
     created = models.DateTimeField("Data de criação", default=datetime.now())
     updated = models.DateTimeField("Data de atualização", default=datetime.now())
-    creator = models.ForeignKey(User, default=get_current_user(), related_name="+")
-    updater = models.ForeignKey(User, default=get_current_user(), related_name="+")
+    creator = models.ForeignKey(User, default=get_current_user(), related_name="+", null=True, blank=True)
+    updater = models.ForeignKey(User, default=get_current_user(), related_name="+", null=True, blank=True)
 
     def save(self):
         self.updated = datetime.now()
+        self.updater = get_current_user()
         super(Generic, self).save()
 
 class Post(Generic):
