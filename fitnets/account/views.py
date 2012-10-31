@@ -14,12 +14,17 @@ def profile(request, username):
     user = get_object_or_404(User, username=username)
     posts = Post.objects.filter(user=user).filter(parent=None)[:10]
     projects = Project.objects.filter(creator=user).filter(finished=False)[:6]
-
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
+
+    new_friends = []
+    for friend in friends:
+        friend = User.objects.get(id=friend)
+        new_friends.append(friend)
+        
     output = {
         'user': user,
         'posts': posts,
-        'friends': friends,
+        'friends': new_friends,
         'projects': projects,
     }
 

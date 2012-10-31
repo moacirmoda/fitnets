@@ -79,30 +79,17 @@ function get_more_wall() {
         <div class="block fotos">
             <h3>
                 Amigos
-                <small><a href="#">ver todos</a>
+                <small><a href="{% url friends.views.all user %}">ver todos</a>
             </h3>
             <div class="blockContent">
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img src="http://placehold.it/94x94"></a>
-                </div>
+                {% for friend in friends %}
+                    <div class="item">
+                        <a href="{% url account.views.profile friend %}" title="{{ friend.get_full_name }}"><img src="{{ friend.get_profile.get_94_avatar }}"></a>
+                    </div>
+                {% endfor %}
                 <div class="clear"></div>
             </div>
-            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+            <div class="buttons"><a href="{% url friends.views.all user %}" class="btn btn-small">ver mais</a></a></div>
         </div>
     </div>
     <!-- fim block atividades -->

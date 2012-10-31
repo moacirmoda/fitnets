@@ -34,6 +34,9 @@ class UserProfile(models.Model):
 
     def get_mini_avatar(self):
         return self.get_avatar(size=66)
+
+    def get_94_avatar(self):
+        return self.get_avatar(size=94)
         
     def get_height_in_meters(self):
         return Decimal(self.height)/Decimal(100)
