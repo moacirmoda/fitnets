@@ -27,3 +27,16 @@ class Project(Generic):
     def permalink(self):
         return reverse("project.views.show", kwargs={'id': self.id, 'slug': self.slugify()})
 
+class CommentProject(Generic):
+
+    class Meta:
+        verbose_name = "Comentário em Projeto"
+        verbose_name_plural = "Comentários em Projeto"
+
+    project = models.ForeignKey(Project)
+    comment = models.TextField("comentário")
+
+    def __unicode__(self):
+        return unicode(self.comment)
+
+
