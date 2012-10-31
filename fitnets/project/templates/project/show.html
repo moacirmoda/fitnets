@@ -12,6 +12,8 @@
         $(".treino h4, .treino h5").click(function(){
             $(this).next('.blockContent').slideToggle();
         });
+
+        // $("#comment").modal();
     });
 </script>
 {% endblock %}
@@ -32,7 +34,25 @@
                     <b>Tipo de Treino:</b> ABC<br>
                     <b>Frequência semanal:</b> {{ project.frequency }} vezes<br>
                 </p>
-                <a href="#" id="showComment" class="btn btn-small btn-primary">Ver Comentários</a>
+
+                <a href="#" id="showComment" class="btn btn-small btn-primary">Ver Comentários</a> &nbsp;
+                <a href="javascript:$('#comment').modal();" class="btn btn-small btn-info">Comentar</a>
+            </div>
+
+            <!-- formulário de comentário -->
+            <div id="comment" class="modal hide fade" role="dialog">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Comente</h3>
+                </div>
+                <form action="" method="POST">{% csrf_token %}
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-info" type="submit">Comentar</button>
+                    </div>
+                </form>
             </div>
             
             <div class="hide block ultimas-publicacoes">
