@@ -35,6 +35,7 @@ def dashboard(request):
     user = get_object_or_404(User, username=request.user.username)
     friend_pending = FriendshipRequest.objects.filter(to_user=request.user).filter(accepted=False)
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
+    projects = Project.objects.filter(creator=user).filter(finished=False)[:6]
     
     
     output = {
@@ -42,6 +43,7 @@ def dashboard(request):
         'friend_pending': friend_pending,
         'user': request.user,
         'friends': friends,
+        'projects': projects,
     }
 
     return render_to_response("account/dashboard.html", output, context_instance=RequestContext(request))

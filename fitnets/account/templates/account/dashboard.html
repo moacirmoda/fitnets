@@ -75,13 +75,17 @@
             <div class="block projetos">
                 <h3>Seus Projetos</h3>
                 <div class="blockContent">
-                    <ul>
-                        <li class="item"><a href="03-project.html">Definição e ganho de massa</a></li>
-                        <li class="item"><a href="03-project.html">Perda de Peso</a></li>
-                        <li class="item"><a href="03-project.html">Definição Muscular</a></li>
-                    </ul>
+                    {% if projects %}
+                        <ul>
+                            {% for project in projects %}
+                                <li class="item"><a href="#">{{ project.objective|capfirst }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <i>(não há projetos em aberto. Clique <a href="{% url project.views.list user 'all' %}">aqui</a> para ver todos.)</i>
+                    {% endif %}
                 </div>
-                <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+                <div class="buttons"><a href="{% url project.views.list request.user %}" class="btn btn-small">ver mais</a></a></div>
             </div>
         </div>
         <!-- fim bloco projetos -->
