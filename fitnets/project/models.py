@@ -55,4 +55,43 @@ class CommentProject(Generic):
     def __unicode__(self):
         return unicode(self.comment)
 
+class TrainingDay(Generic):
+
+    DAY_CHOICES = (
+        ("A", "A"),
+        ("B", "B"),
+        ("C", "C"),
+        ("D", "D"),
+        ("E", "E"),
+        ("F", "F"),
+    )
+
+    class Meta:
+        verbose_name = "Dia de Treino"
+        verbose_name_plural = "Dias de Treino"
+
+    project = models.ForeignKey(Project)
+    day = models.CharField("Dia", choices=DAY_CHOICES, max_length=1)
+    init = models.DateField("Início")
+    duration = models.IntegerField("Duração")
+
+    def __unicode__(self):
+        return unicode("%s (inicio em: %s)" % (self.day, self.init))
+
+class TrainingExercise(Generic):
+
+    class Meta:
+        verbose_name = "Exercício"
+        verbose_name_plural = "Exercícios"
+
+    day = models.ForeignKey(TrainingDay)
+    exercise = models.CharField("exercício", max_length=255)
+    serie = models.IntegerField("séries")
+    repetition = models.IntegerField("Repetições")
+
+    def __unicode__(self):
+        return unicode(self.exercise)
+
+
+
 
