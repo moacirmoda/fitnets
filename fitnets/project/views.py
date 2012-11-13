@@ -51,12 +51,14 @@ def show(request, id, slug):
     output = {}
     project = get_object_or_404(Project, id=id)
     comments = CommentProject.objects.filter(project=project).order_by('-id')[:10]
-
     comment_form = CommentProjectForm(initial={'project': id, 'creator': request.user.id})
+
+    trainings = TrainingDay.objects.filter(project=project)
 
     output['project'] = project
     output['comments'] = comments
     output['comment_form'] = comment_form
+    output['trainings'] = trainings
 
     return render_to_response("project/show.html", output, context_instance=RequestContext(request))
 
@@ -73,3 +75,31 @@ def comment(request, project):
             return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
         else:
             return HttpResponse(form)
+
+@login_required
+def create_training_day(request, project):
+
+    output = {}
+    project = get_object_or_404(Project, id=project)
+    comments = CommentProject.objects.filter(project=project).order_by('-id')[:10]
+    comment_form = CommentProjectForm(initial={'project': project, 'creator': request.user.id})
+
+    if not project.creator == request.user:
+        raise Http404
+
+    form = TrainingDayForm(initial={'project': project.id})
+
+    if request.POST:
+        form = TrainingDayForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
+
+
+    output['project'] = project
+    output['comments'] = comments
+    output['comment_form'] = comment_form
+    output['form'] = form
+    
+    return render_to_response("project/create_training_day.html", output, context_instance=RequestContext(request))

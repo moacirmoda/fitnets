@@ -144,6 +144,7 @@ INSTALLED_APPS = (
     'django_tools',
     'registration',
     'messages',
+    # 'django_extensions',
 
     'account',
     'wall',

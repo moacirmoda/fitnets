@@ -1,0 +1,55 @@
+{% include "account/avatar.html" %}
+
+    <div class="span9">
+        <h2>{{ project.objective|capfirst }}<small>(por {{ project.creator.get_full_name }})</small></h2>
+        <div class="block about">
+            <p>
+                <i class="icon-time"></i><b> Início:</b> {{ project.init|date:"d/m/Y " }}
+                <i class="icon-time"></i><b> Duração:</b> {{ project.duration }} meses<br>
+                <b>Tipo de Treino:</b> ABC<br>
+                <b>Frequência semanal:</b> {{ project.frequency }} vezes<br>
+            </p>
+
+            <a href="#" id="showComment" class="btn btn-small btn-primary">Ver Comentários</a> &nbsp;
+            <a href="javascript:$('#comment').modal();" class="btn btn-small btn-info">Comentar</a>
+        </div>
+
+        <!-- formulário de comentário -->
+        <div id="comment" class="modal hide fade" role="dialog">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Comente</h3>
+            </div>
+            <form action="{% url project.views.comment project.id %}" method="POST">{% csrf_token %}
+                <div class="modal-body">
+                    {{ comment_form }}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="submit">Comentar</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="hide block ultimas-publicacoes">
+            <h2>Comentários</h2>
+            <div class="blockContent">
+                {% if comments %}
+                    {% for comment in comments %}
+                    <div class="item">
+                        <img src="{{ comment.creator.get_profile.get_mini_avatar }}">
+                        <h4>{{ comment.creator.get_full_name }} escreveu:</h4>
+                        <p>
+                            {{ comment }}
+                            <br><small>{{ comment.created }}</small>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                    {% endfor %}
+                {% else %}
+                    <i>Não há comentários para este projeto.</i>
+                {% endif %}
+            </div>
+            <div class="clear"></div>
+            <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
+        </div>
+    </div>

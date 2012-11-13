@@ -32,5 +32,19 @@ class CommentProjectForm(forms.ModelForm):
         cleaned_data['creator'] = User.objects.get(id=cleaned_data['creator'])
         return cleaned_data
 
+class TrainingDayForm(forms.ModelForm):
+
+    class Meta:
+        model = TrainingDay
+        exclude = ('created', 'updater', 'updated', 'creator')
+
+    project = forms.CharField(label="", widget=forms.HiddenInput())
+    duration = forms.CharField(label="Duração (em meses)", widget=NumberInput(attrs={'min': 1, 'max': 12}))
+    init = forms.CharField(label="Início", widget=DateInput())
+
+    def clean(self):
+        cleaned_data = super(TrainingDayForm, self).clean()
+        cleaned_data['project'] = Project.objects.get(id=cleaned_data['project'])
+        return cleaned_data
     
 
