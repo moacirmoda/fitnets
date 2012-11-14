@@ -134,3 +134,13 @@ def create_training_exercise(request, project):
     output['form'] = form
     
     return render_to_response("project/create_training_exercise.html", output, context_instance=RequestContext(request))
+
+@login_required
+def delete_train(request, train):
+
+    train = TrainingDay.objects.get(id=train)
+    if not train.project.creator == request.user:
+        raise Http404    
+
+    train.delete()
+    return redirect(reverse('project.views.show', kwargs={'id': train.project.id, 'slug': train.project.slugify()}))

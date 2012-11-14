@@ -12,9 +12,14 @@
         $(".treino h4, .treino h5").click(function(){
             $(this).next('.blockContent').slideToggle();
         });
-
-        // $("#comment").modal();
     });
+
+    function delete_train(id){
+        var url = "{% url project.views.delete_train 0 %}".replace('0', id);
+        if(confirm("Você deseja realmente excluir este dia de treino?")) {
+            location.href = url;
+        }
+    }
 </script>
 {% endblock %}
 
@@ -33,7 +38,14 @@
                     <ul>
                         {% for train in trainings %}
                             <li class="muscle_group">
-                                <h4>Treino {{ train.day }}</h4>
+                                <h4>
+                                    Treino {{ train.day }}
+                                    {% if project.creator == request.user %}
+                                        <small>
+                                            <a href="javascript:delete_train('{{ train.id }}')" title="Excluir">(excluir)</a>
+                                        </small>
+                                    {% endif %}
+                                </h4>
                                 <div class="blockContent">
                                     <ul>
                                         {% for exercise in exercises %}
