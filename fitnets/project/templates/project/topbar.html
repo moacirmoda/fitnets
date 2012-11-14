@@ -6,12 +6,18 @@
             <p>
                 <i class="icon-time"></i><b> Início:</b> {{ project.init|date:"d/m/Y " }}
                 <i class="icon-time"></i><b> Duração:</b> {{ project.duration }} meses<br>
-                <b>Tipo de Treino:</b> ABC<br>
+                <b>Tipo de Treino:</b> {% for train in trainings %}{{ train.day }}{% endfor %}<br>
                 <b>Frequência semanal:</b> {{ project.frequency }} vezes<br>
             </p>
 
             <a href="#" id="showComment" class="btn btn-small btn-primary">Ver Comentários</a> &nbsp;
             <a href="javascript:$('#comment').modal();" class="btn btn-small btn-info">Comentar</a>
+            <div class="button-admin">
+            {% if project.creator == request.user %}
+                &nbsp;<a href="{% url project.views.create_training_day project.id %}" class="btn btn-small">Criar dia de treino</a>
+                &nbsp;<a href="{% url project.views.create_training_exercise project.id %}" class="btn btn-small">Adicionar exercício</a>
+            {% endif %}        
+            </div>
         </div>
 
         <!-- formulário de comentário -->

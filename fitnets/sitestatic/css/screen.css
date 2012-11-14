@@ -239,6 +239,9 @@ img {
     height: 100px;
 }
 
+.button-admin {
+    float: right;
+}
 
 .footer {
     padding: 20px 10px;    
