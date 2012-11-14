@@ -34,66 +34,22 @@
                         {% for train in trainings %}
                             <li class="muscle_group">
                                 <h4>Treino {{ train.day }}</h4>    
+                                <div class="blockContent">
+                                    <ul>
+                                        {% for exercise in exercises %}
+                                            {% if exercise.day == train %}
+                                                <li>
+                                                    <b>{{ exercise }}:</b> 
+                                                    {{ exercise.serie }} séries /
+                                                    {{ exercise.repetition }} repetições
+                                                </li>
+                                            {% endif %}
+                                            
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </li>
                         {% endfor %}
-                        <!-- <li class="muscle_group">
-                            <h4>Treino A</h4>
-                            <div class="blockContent">
-                                <ul>
-                                    <li>
-                                        <h5>Peitoral</h5>
-                                        <div class="blockContent">
-                                            <ul>
-                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h5>Biceps</h5>
-                                        <div class="blockContent">
-                                            <ul>
-                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="muscle_group">
-                            <h4>Treino B</h4>
-                            <div class="blockContent">
-                                <ul>
-                                    <li>
-                                        <h5>Peitoral</h5>
-                                        <div class="blockContent">
-                                            <ul>
-                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h5>Biceps</h5>
-                                        <div class="blockContent">
-                                            <ul>
-                                                <li><p><b>Supino Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Supino Inclinado:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Crucifixo Reto:</b> 3 séries / 12 repetições</p></li>
-                                                <li><p><b>Pullover:</b> 3 séries / 12 repetições</p></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
             </div>

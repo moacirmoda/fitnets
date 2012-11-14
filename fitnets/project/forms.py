@@ -46,5 +46,11 @@ class TrainingDayForm(forms.ModelForm):
         cleaned_data = super(TrainingDayForm, self).clean()
         cleaned_data['project'] = Project.objects.get(id=cleaned_data['project'])
         return cleaned_data
+
+class TrainingExerciseForm(forms.ModelForm):
+
+    class Meta:
+        model = TrainingExercise
+        exclude = ('created', 'updater', 'updated', 'creator')
     
 
