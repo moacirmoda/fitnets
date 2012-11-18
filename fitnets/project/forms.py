@@ -52,5 +52,17 @@ class TrainingExerciseForm(forms.ModelForm):
     class Meta:
         model = TrainingExercise
         exclude = ('created', 'updater', 'updated', 'creator')
-    
 
+class EvolutionForm(forms.ModelForm):
+
+    class Meta:
+        model = Evolution
+        exclude = ('created', 'updater', 'updated', 'creator')
+    
+    project = forms.CharField(label="", widget=forms.HiddenInput())
+    date = forms.CharField(label="Data", widget=DateInput())
+
+    def clean(self):
+        cleaned_data = super(EvolutionForm, self).clean()
+        cleaned_data['project'] = Project.objects.get(id=cleaned_data['project'])
+        return cleaned_data

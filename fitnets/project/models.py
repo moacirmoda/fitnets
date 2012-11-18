@@ -3,8 +3,9 @@ from django_tools.middlewares.ThreadLocal import get_current_user, get_current_r
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from utils.thumbs import ImageWithThumbsField
 from django.db import models
-from datetime import datetime
+from datetime import datetime, date
 
 class Generic(models.Model):
 
@@ -92,6 +93,17 @@ class TrainingExercise(Generic):
     def __unicode__(self):
         return unicode(self.exercise)
 
+class Evolution(Generic):
+
+    class Meta:
+        verbose_name = "Evolução"
+        verbose_name_plural = "Evoluções"
+
+    project = models.ForeignKey(Project)
+    photo = ImageWithThumbsField("Foto", upload_to='images', sizes=((94,94),(640,480)))
+    date = models.DateField("Data", default=date.today())
+
+    
 
 
 

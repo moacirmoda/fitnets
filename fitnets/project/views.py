@@ -55,12 +55,14 @@ def show(request, id, slug):
 
     trainings = TrainingDay.objects.filter(project=project)
     exercises = TrainingExercise.objects.filter(day__in=trainings)
+    evolutions = Evolution.objects.filter(project=project)[:6]
 
     output['project'] = project
     output['comments'] = comments
     output['comment_form'] = comment_form
     output['trainings'] = trainings
     output['exercises'] = exercises
+    output['evolutions'] = evolutions
 
     return render_to_response("project/show.html", output, context_instance=RequestContext(request))
 
@@ -144,3 +146,31 @@ def delete_train(request, train):
 
     train.delete()
     return redirect(reverse('project.views.show', kwargs={'id': train.project.id, 'slug': train.project.slugify()}))
+
+@login_required
+def create_evolution(request, project):
+
+    output = {}
+    project = get_object_or_404(Project, id=project)
+    comments = CommentProject.objects.filter(project=project).order_by('-id')[:10]
+    comment_form = CommentProjectForm(initial={'project': project, 'creator': request.user.id})
+
+    if not project.creator == request.user:
+        raise Http404
+
+    form = EvolutionForm(initial={'project': project.id})
+
+    if request.POST:
+        form = EvolutionForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
+
+
+    output['project'] = project
+    output['comments'] = comments
+    output['comment_form'] = comment_form
+    output['form'] = form
+    
+    return render_to_response("project/create_evolution.html", output, context_instance=RequestContext(request))

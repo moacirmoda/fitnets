@@ -74,9 +74,11 @@
             <div class="block evolucao">
                 <h3>Evolução</h3>
                 <div class="blockContent">
-                    <div class="item">
-                        <a href="#"><img src="http://placehold.it/94x94"></a>
-                    </div>
+                    {% for evolution in evolutions %}
+                        <div class="item">
+                            <a href="{{ evolution.photo.url_640x480 }}"><img src="{{ evolution.photo.url_94x94 }}"></a>
+                        </div>
+                    {% endfor %}
                     <div class="item">
                         <a href="#"><img src="http://placehold.it/94x94"></a>
                     </div>
