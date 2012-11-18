@@ -1,4 +1,5 @@
 *.pyc
 database.db
 settings_local.py
+media/
 
