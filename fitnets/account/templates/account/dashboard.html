@@ -36,34 +36,15 @@
             <div class="block atividades">
                 <h3>Atividades de amigos</h3>
                 <div class="blockContent">
-                    <div class="item atividade">
-                        <a href="#">
-                            <i class="icon-heart"></i>
-                            <b>Neymar</b> 
-                            <small>começou uma nova amizade com Carla</small>.
-                        </a>
-                    </div>
-                    <div class="item atividade">
-                        <a href="#">
-                            <i class="icon-flag"></i>
-                            <b>Schneider</b> 
-                            <small>iniciou um novo projeto</small>.
-                        </a>
-                    </div>
-                    <div class="item atividade">
-                        <a href="#">
-                            <i class="icon-comment"></i>
-                            <b>Carla</b> 
-                            <small>fez um comentário no projeto de Neymar</small>.
-                        </a>
-                    </div>
-                    <div class="item atividade">
-                        <a href="#">
-                            <i class="icon-wrench"></i>
-                            <b>Schneider</b> 
-                            <small>alterou seu perfil</small>.
-                        </a>
-                    </div>
+                    {% for activity in activities %}
+                        <div class="item atividade">
+                            <a href="{{ activity.link }}">
+                                <i class="icon-heart"></i>
+                                <b>{{ activity.creator }}</b> 
+                                <small>{{ activity.message }}</small>.
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="buttons"><a href="#" class="btn btn-small">ver mais</a></a></div>
             </div>

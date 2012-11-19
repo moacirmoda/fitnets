@@ -10,11 +10,17 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        exclude = ('comment', 'finished', 'creator', 'created', 'updater', 'updated')
+        exclude = ('comment', 'finished', 'created', 'updater', 'updated')
 
+    creator = forms.CharField(label="", widget=forms.HiddenInput())
     init = forms.CharField(label="Data de Início", widget=DateInput())
     duration = forms.CharField(label="Duração (em meses)", widget=NumberInput(attrs={'min': 1, 'max': 12}))
     frequency = forms.CharField(label="Frequência (em dias)", widget=NumberInput(attrs={'min': 1, 'max': 7}))
+
+    def clean(self):
+        cleaned_data = super(ProjectForm, self).clean()
+        cleaned_data['creator'] = User.objects.get(id=cleaned_data['creator'])
+        return cleaned_data
 
 
 class CommentProjectForm(forms.ModelForm):

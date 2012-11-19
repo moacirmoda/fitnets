@@ -1,11 +1,11 @@
 #! coding: utf-8
 from django_tools.middlewares.ThreadLocal import get_current_user, get_current_request
 from django.template.defaultfilters import slugify
+from utils.thumbs import ImageWithThumbsField
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from utils.thumbs import ImageWithThumbsField
-from django.db import models
 from datetime import datetime, date
+from django.db import models
 
 class Generic(models.Model):
 

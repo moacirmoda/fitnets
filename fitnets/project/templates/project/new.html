@@ -20,6 +20,8 @@
                                 <span class="help-inline">{{ field.errors }}</span>
                                 {{ field }}
                             </div>
+                        {% else %}
+                            {{ field }}
                         {% endif %}
                     {% endfor %}
                 </div>

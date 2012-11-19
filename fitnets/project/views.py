@@ -11,7 +11,7 @@ from forms import *
 def new(request):
 
     output = {}
-    form = ProjectForm()
+    form = ProjectForm(initial={'creator': request.user.id})
 
     if request.POST:
         form = ProjectForm(request.POST, request.FILES)
