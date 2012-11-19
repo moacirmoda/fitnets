@@ -112,18 +112,14 @@
             <div class="block treino">
                 <h3>Suplementação</h3>
                 <div class="blockContent">
+                    {% for suplement in suplements %}
                     <div class="item">
-                        <h4>Whey Protein</h4>
+                        <h4>{{ suplement.product }}</h4>
                         <p>
-                            <small><b>Fabricante:</b> X-Lab</small>
+                            <small>{{ suplement.cat }} _ <b>{{ suplement.suplement }}</b></small>
                         </p>
                     </div>
-                    <div class="item">
-                        <h4>Creatina</h4>
-                        <p>
-                            <small><b>Fabricante:</b> Probiótica</small>
-                        </p>
-                    </div>                            
+                    {% endfor %}
                 </div>
             </div>
         </div>

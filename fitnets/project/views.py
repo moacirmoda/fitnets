@@ -57,6 +57,7 @@ def show(request, id, slug):
     exercises = TrainingExercise.objects.filter(day__in=trainings)
     evolutions = Evolution.objects.filter(project=project).order_by('-id')[:6]
     meals = Meal.objects.filter(project=project).order_by('meal')
+    suplements = Suplemento.objects.filter(project=project).order_by('-id')
 
     output['project'] = project
     output['comments'] = comments
@@ -65,6 +66,7 @@ def show(request, id, slug):
     output['exercises'] = exercises
     output['evolutions'] = evolutions
     output['meals'] = meals
+    output['suplements'] = suplements
 
     return render_to_response("project/show.html", output, context_instance=RequestContext(request))
 
