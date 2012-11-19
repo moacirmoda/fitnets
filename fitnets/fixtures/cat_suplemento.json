@@ -1,0 +1,24 @@
+[
+  {
+    "pk": 1, 
+    "model": "project.catsuplemento", 
+    "fields": {
+      "updated": "2012-11-19 16:50:39", 
+      "creator": 1, 
+      "updater": 1, 
+      "product": "Amino\u00e1cidos", 
+      "created": "2012-11-19 16:49:05"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "project.catsuplemento", 
+    "fields": {
+      "updated": "2012-11-19 16:50:46", 
+      "creator": null, 
+      "updater": 1, 
+      "product": "Proteina", 
+      "created": "2012-11-19 16:49:05"
+    }
+  }
+]
