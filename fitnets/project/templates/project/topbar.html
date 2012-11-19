@@ -15,9 +15,10 @@
             <div class="button-admin">
             {% if project.creator == request.user %}
                 &nbsp;<a href="{% url project.views.create_training_day project.id %}" class="btn btn-small">Criar dia de treino</a>
-                &nbsp;<a href="{% url project.views.create_training_exercise project.id %}" class="btn btn-small">Adicionar exercício</a>
-                &nbsp;<a href="{% url project.views.create_evolution project.id %}" class="btn btn-small">Adicionar evolução</a>
-                &nbsp;<a href="{% url project.views.create_meal project.id %}" class="btn btn-small">Adicionar refeição</a>
+                &nbsp;<a href="{% url project.views.create_training_exercise project.id %}" class="btn btn-small">+ exercício</a>
+                &nbsp;<a href="{% url project.views.create_evolution project.id %}" class="btn btn-small">+ evolução</a>
+                &nbsp;<a href="{% url project.views.create_meal project.id %}" class="btn btn-small">+ refeição</a>
+                &nbsp;<a href="{% url project.views.create_suplement project.id %}" class="btn btn-small">+ suplemento</a>
             {% endif %}        
             </div>
         </div>
