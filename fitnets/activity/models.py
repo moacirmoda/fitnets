@@ -12,7 +12,7 @@ class Activity(models.Model):
         verbose_name_plural = "Atividades de amigos"
     
     created = models.DateTimeField(default=datetime.now(), editable=False)
-    creator = models.ForeignKey(User)
+    creator = models.ForeignKey(User, null=True)
     message = models.CharField(max_length=255)
     link = models.URLField()
 
