@@ -56,6 +56,7 @@ def show(request, id, slug):
     trainings = TrainingDay.objects.filter(project=project)
     exercises = TrainingExercise.objects.filter(day__in=trainings)
     evolutions = Evolution.objects.filter(project=project).order_by('-id')[:6]
+    meals = Meal.objects.filter(project=project).order_by('meal')
 
     output['project'] = project
     output['comments'] = comments
@@ -63,6 +64,7 @@ def show(request, id, slug):
     output['trainings'] = trainings
     output['exercises'] = exercises
     output['evolutions'] = evolutions
+    output['meals'] = meals
 
     return render_to_response("project/show.html", output, context_instance=RequestContext(request))
 
@@ -194,9 +196,10 @@ def create_meal(request, project):
         meal.save()
 
         for food in foods:
-            food = Food(meal=meal, food=food)
-            food.save()
-            food = None
+            if food:
+                food = Food(meal=meal, food=food)
+                food.save()
+                food = None
 
         return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
 

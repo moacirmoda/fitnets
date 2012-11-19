@@ -103,6 +103,14 @@ class Evolution(Generic):
     photo = ImageWithThumbsField("Foto", upload_to='images', sizes=((94,94),(640,480)))
     date = models.DateField("Data", default=date.today())
 
+class Food(Generic):
+
+    meal = models.ForeignKey('Meal')
+    food = models.CharField('alimento', max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.food)
+
 class Meal(Generic):
 
     MEAL_CHOICES = (
@@ -123,15 +131,11 @@ class Meal(Generic):
     meal = models.CharField('refeição', max_length=1, choices=MEAL_CHOICES)
 
     def __unicode__(self):
-        return unicode(meal)
+        return unicode(self.meal)
 
-class Food(Generic):
+    def foods(self):
+        return Food.objects.filter(meal=self).order_by('-id')
 
-    meal = models.ForeignKey(Meal)
-    food = models.CharField('alimento', max_length=255)
-
-    def __unicode__(self):
-        return unicode(food)
 
 
 
