@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- conteudo -->
+<div class="container content profile">            
+    <div class="row">
+        {% include "project/topbar.html" %}
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="block treino">
+                <h3>Criação de Suplementação</h3>
+                <div class="blockContent">
+                    <form name="exercicios" method="POST" class="form" enctype="multipart/form-data">{% csrf_token %}
+                        
+                        {{ form }}
+
+                        <div class="buttons">
+                            <button type="submit" class="btn"><b>Criar</b></button>
+                            <button type="reset" class="btn">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

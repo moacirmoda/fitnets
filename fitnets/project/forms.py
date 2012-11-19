@@ -66,3 +66,16 @@ class EvolutionForm(forms.ModelForm):
         cleaned_data = super(EvolutionForm, self).clean()
         cleaned_data['project'] = Project.objects.get(id=cleaned_data['project'])
         return cleaned_data
+
+class SuplementForm(forms.ModelForm):
+
+    class Meta:
+        model = Suplemento
+        exclude = ('created', 'updater', 'updated', 'creator')
+    
+    project = forms.CharField(label="", widget=forms.HiddenInput())
+
+    def clean(self):
+        cleaned_data = super(SuplementForm, self).clean()
+        cleaned_data['project'] = Project.objects.get(id=cleaned_data['project'])
+        return cleaned_data

@@ -143,7 +143,8 @@ class Suplemento(Generic):
         verbose_name_plural = "Suplementações"
 
     project = models.ForeignKey(Project)
-    cat = models.ForeignKey('CatSuplemento')
+    cat = models.ForeignKey('CatSuplemento', verbose_name="Categoria")
+    suplement = models.ForeignKey('TypeSuplemento', verbose_name="Suplemento")
     product = models.CharField("Produto / Marca", max_length=255)
 
 class CatSuplemento(Generic):
@@ -157,6 +158,13 @@ class CatSuplemento(Generic):
     def __unicode__(self):
         return unicode(self.product)
 
+class TypeSuplemento(Generic):
 
+    class Meta:
+        verbose_name = "Tipo de Suplemento"
+        verbose_name_plural = "Tipos de Suplemento"
 
+    title = models.CharField("Tipo de Suplemento", max_length=255)
 
+    def __unicode__(self):
+        return unicode(self.title)

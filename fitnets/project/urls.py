@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^delete-train/(?P<train>\d+)/?$', 'project.views.delete_train'),
     url(r'^create-evolution/(?P<project>\d+)/?$', 'project.views.create_evolution'),
     url(r'^create-meal/(?P<project>\d+)/?$', 'project.views.create_meal'),
+    url(r'^create-suplement/(?P<project>\d+)/?$', 'project.views.create_suplement'),
 )

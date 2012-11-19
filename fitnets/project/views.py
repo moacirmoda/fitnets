@@ -209,3 +209,30 @@ def create_meal(request, project):
 
     return render_to_response("project/create_meal.html", output, context_instance=RequestContext(request))
 
+@login_required
+def create_suplement(request, project):
+
+    output = {}
+    project = get_object_or_404(Project, id=project)
+    comments = CommentProject.objects.filter(project=project).order_by('-id')[:10]
+    comment_form = CommentProjectForm(initial={'project': project, 'creator': request.user.id})
+
+    if not project.creator == request.user:
+        raise Http404
+
+    form = SuplementForm(initial={'project': project.id})
+
+    if request.POST:
+        form = SuplementForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
+
+
+    output['project'] = project
+    output['comments'] = comments
+    output['comment_form'] = comment_form
+    output['form'] = form
+    
+    return render_to_response("project/create_suplement.html", output, context_instance=RequestContext(request))
