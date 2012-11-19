@@ -16,6 +16,7 @@
             {% if project.creator == request.user %}
                 &nbsp;<a href="{% url project.views.create_training_day project.id %}" class="btn btn-small">Criar dia de treino</a>
                 &nbsp;<a href="{% url project.views.create_training_exercise project.id %}" class="btn btn-small">Adicionar exercício</a>
+                &nbsp;<a href="{% url project.views.create_evolution project.id %}" class="btn btn-small">Adicionar evolução</a>
             {% endif %}        
             </div>
         </div>
