@@ -136,6 +136,27 @@ class Meal(Generic):
     def foods(self):
         return Food.objects.filter(meal=self).order_by('-id')
 
+class Suplemento(Generic):
+
+    class Meta:
+        verbose_name = "Suplementação"
+        verbose_name_plural = "Suplementações"
+
+    project = models.ForeignKey(Project)
+    cat = models.ForeignKey('CatSuplemento')
+    product = models.CharField("Produto / Marca", max_length=255)
+
+class CatSuplemento(Generic):
+
+    class Meta:
+        verbose_name = "Categoria de Suplemento"
+        verbose_name_plural = "Categorias de Suplemento"
+
+    product = models.CharField("Categoria", max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.product)
+
 
 
 
