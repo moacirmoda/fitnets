@@ -55,7 +55,7 @@ def show(request, id, slug):
 
     trainings = TrainingDay.objects.filter(project=project)
     exercises = TrainingExercise.objects.filter(day__in=trainings)
-    evolutions = Evolution.objects.filter(project=project)[:6]
+    evolutions = Evolution.objects.filter(project=project).order_by('-id')[:6]
 
     output['project'] = project
     output['comments'] = comments
