@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<script>
+    $(function(){
+        $(".treino .muscle_group .blockContent").hide();
+        $(".treino h4").click(function(){
+            $('.treino .muscle_group .blockContent').hide(400);
+            $(this).next('.blockContent').slideDown();
+        });
+
+    });
+
+    function more_food() {
+        var html = $(".div_alimento").html();
+        $(".div_alimentos").append(html);
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- conteudo -->
+<div class="container content profile">            
+    <div class="row">
+        {% include "project/topbar.html" %}
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="block treino">
+                <h3>Criação de Evolução</h3>
+                <div class="blockContent">
+                    <form name="exercicios" method="POST" class="form" enctype="multipart/form-data">{% csrf_token %}
+                        
+                        <label for="refeicao">Refeição</label>
+                        <select name="meal" id="refeicao">
+                            <option value="1">1ª</option>
+                            <option value="2">2ª</option>
+                            <option value="3">3ª</option>
+                            <option value="4">4ª</option>
+                            <option value="5">5ª</option>
+                            <option value="6">6ª</option>
+                            <option value="7">7ª</option>
+                        </select>
+
+                        <label for="alimentos">Alimentos</label> 
+                        <div class="div_alimento">
+                            <div>
+                                <input type="text" name="foods" id="alimentos">
+                                <a href="javascript:more_food()">+</a>
+                            </div>
+                        </div>
+                        <div class="div_alimentos"></div>
+
+                        <div class="buttons">
+                            <button type="submit" class="btn"><b>Criar</b></button>
+                            <button type="reset" class="btn">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
