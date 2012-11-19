@@ -1,4 +1,8 @@
-{% include "account/avatar.html" %}
+<div class="span3 side">
+    <div class="fotoPerfil">
+        <img src="{{ project.creator.get_profile.get_avatar }}" />
+    </div>
+</div>
 
     <div class="span9">
         <h2><a href="{% url project.views.show project.id project.slugify %}">{{ project.objective|capfirst }}</a><small>(por {{ project.creator.get_full_name }})</small></h2>
