@@ -127,6 +127,7 @@ TEMPLATE_DIRS = (
     'account/templates',
     'wall/templates',
     'registration/templates',
+    'search/templates',
     'templates',
 )
 
@@ -151,6 +152,7 @@ INSTALLED_APPS = (
     'friends',
     'project',
     'activity',
+    'search',
 
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'wall/', include('wall.urls')),
     url(r'friends/', include('friends.urls')),
     url(r'project/', include('project.urls')),
+    url(r'search/', include('search.urls')),
     url(r'', include('main.urls')),
 
     url(r'^user/(?P<username>[\w_-]+)/?$', 'account.views.profile'),

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container content profile">
+    <div class="row">
+
+        <form action="{% url search.views.search %}">
+            <div class="span12"><h2>Pesquisa</h2></div>
+            <div class="span3">
+                <div class="block itens">
+                    <h3>Ítens</h3>
+                    <div class="blockContent">
+                        <label for="inputProjeto">
+                            <input type="checkbox" id="inputProjeto" name="itens[]" value="projeto" {% if 'projeto' in itens %}checked="true"{% endif %}> Projeto
+                        </label>
+                        <label for="inputPessoa">
+                            <input type="checkbox" id="inputPessoa" name="itens[]" value="user" {% if 'user' in itens %}checked="true"{% endif %}> Pessoa
+                        </label>
+                        <!-- <label for="inputPublicacao">
+                            <input type="checkbox" id="inputPublicacao" name="itens" value="projeto"> Publicação
+                        </label> -->
+                    </div>
+                </div>
+            </div>
+            <div class="span9">
+                <div class="block query">
+                        <label><h3>Termos de Busca <small>(Pressione enter para buscar)</small></h3></label>
+                        <input type="text" name="q" value="{{ request.GET.q }}"><br>
+                    <div class="control-panel">
+                        <!-- <button type="submit" class="btn btn-large">Buscar</button> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="span12">    
+            <div class="block result">
+                <h3>Resultados <small>({{ total }})</small></h3>
+                <div class="blockContent">
+                    <ul>
+                        {% for project in projects %}
+                            <li class="item"><a href="#"><h4>{{ project.objective }} <small>(projeto)</small></h4></a></li>
+                        {% endfor %}
+
+                        {% for user in users %}
+                            <li class="item"><a href="#"><h4>{{ user.username }} <small>(user)</small></h4></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>            
+    </div>            
+</div>
+<!-- fim coutendo -->
+{% endblock %}
