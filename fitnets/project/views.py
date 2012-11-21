@@ -16,9 +16,8 @@ def new(request):
     if request.POST:
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-        else:
-            print form.errors
+            project = form.save()
+            return redirect(reverse('project.views.show', kwargs={'id': project.id, 'slug': project.slugify()}))
 
     output['form'] = form
 
