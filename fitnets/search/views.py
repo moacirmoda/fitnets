@@ -28,12 +28,10 @@ def search(request):
         print itens
         if 'projeto' in itens:
             projects = Project.objects.filter(objective__icontains=q)[:10]
-            print 'lelelee'
             total += len(projects)
 
 
         if 'user' in itens:
-            print 'lelelele'
             users = User.objects.filter(Q(username__icontains=q) | Q(first_name__icontains=q))[:10]
             total += len(users)
 

@@ -22,8 +22,6 @@ def new(request, id):
         if form.is_valid():
             form.save()
             return redirect(reverse('account.views.profile', args=[request.user.username]) + "?action=wall")       
-        else:
-            print form.errors
 
 @login_required
 def like(request, id):
@@ -41,7 +39,6 @@ def unlike(request, id):
     try:
         post = Post.objects.get(id=id)
         post.non_like = post.non_like + 1
-        print post.non_like
         post.save()
 
         return HttpResponse(post.non_like)
