@@ -41,11 +41,11 @@
                 <div class="blockContent">
                     <ul>
                         {% for project in projects %}
-                            <li class="item"><a href="#"><h4>{{ project.objective }} <small>(projeto)</small></h4></a></li>
+                            <li class="item"><a href="{{ project.permalink }}"><h4>{{ project.objective }} <small>(projeto)</small></h4></a></li>
                         {% endfor %}
 
                         {% for user in users %}
-                            <li class="item"><a href="#"><h4>{{ user.username }} <small>(user)</small></h4></a></li>
+                            <li class="item"><a href="{% url account.views.profile user %}"><h4>{{ user.username }} <small>(user)</small></h4></a></li>
                         {% endfor %}
                     </ul>
                 </div>
