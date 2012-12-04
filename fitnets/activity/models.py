@@ -41,7 +41,7 @@ def create_activity(sender, instance, created, **kwargs):
         activity.creator = project.creator
 
     if classname == "TrainingExercise":
-        project = instance.project
+        project = instance.day.project
         activity.message = "criou um novo exercício"
         activity.creator = project.creator
 
