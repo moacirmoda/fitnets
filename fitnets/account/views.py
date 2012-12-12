@@ -42,7 +42,7 @@ def dashboard(request):
     friend_pending = FriendshipRequest.objects.filter(to_user=request.user).filter(accepted=False)
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
     projects = Project.objects.filter(creator=user).filter(finished=False)[:6]
-    activities = Activity.objects.filter(creator__id__in=friends)
+    activities = Activity.objects.filter(creator__id__in=friends).order_by('-id')[:4]
     
     output = {
         'forms': forms,
