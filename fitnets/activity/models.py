@@ -33,7 +33,7 @@ def create_activity(sender, instance, created, **kwargs):
     if classname == "CommentProject":
         project = instance.project
         activity.message = "comentou em um projeto"
-        activity.creator = project.creator
+        activity.creator = instance.creator
 
     if classname == "TrainingDay":
         project = instance.project

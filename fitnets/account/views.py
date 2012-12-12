@@ -14,7 +14,7 @@ def profile(request, username):
 
     user = get_object_or_404(User, username=username)
     posts = Post.objects.filter(user=user).filter(parent=None)[:10]
-    projects = Project.objects.filter(creator=user).filter(finished=False)[:6]
+    projects = Project.objects.filter(creator=user).filter(finished=False).order_by('-id')[:6]
     friends = Friendship.objects.friends_of(user).values_list('id', flat=True)
 
     new_friends = []
